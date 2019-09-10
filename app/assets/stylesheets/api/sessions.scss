@@ -1,0 +1,175 @@
+// Place all the styles related to the api/sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(//db.onlinewebfonts.com/c/e8a9d7a8c7a90eaca5ea1ca65606636f?family=Klavika+Bold);
+
+@font-face {font-family: "Klavika Bold"; src: url("//db.onlinewebfonts.com/t/e8a9d7a8c7a90eaca5ea1ca65606636f.eot"); 
+  src: url("//db.onlinewebfonts.com/t/e8a9d7a8c7a90eaca5ea1ca65606636f.eot?#iefix") format("embedded-opentype"), 
+  url("//db.onlinewebfonts.com/t/e8a9d7a8c7a90eaca5ea1ca65606636f.woff2") format("woff2"), 
+  url("//db.onlinewebfonts.com/t/e8a9d7a8c7a90eaca5ea1ca65606636f.woff") format("woff"), 
+  url("//db.onlinewebfonts.com/t/e8a9d7a8c7a90eaca5ea1ca65606636f.ttf") format("truetype"), 
+  url("//db.onlinewebfonts.com/t/e8a9d7a8c7a90eaca5ea1ca65606636f.svg#Klavika Bold") format("svg"); }
+
+body {
+  font-family: 'Klavika Bold';
+}
+
+#signup-page {
+  width: 100%;
+  display: flex;
+  margin-right: 0;
+  background-image: image-url('basic_friends.jpg');
+  background-size: cover;
+}
+
+#left-comments {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+}
+
+#left-comments h1 {
+  font-size: 50px;
+  padding: 30px;
+  padding-left: 50px;
+  color:rgb(255, 255, 255);
+  text-shadow: rgb(60, 90, 150) -5px -5px, 0 0 1em rgb(60, 90, 150);
+
+}
+
+#left-comments h3 {
+  padding: 50px;
+  font-size: 30px;
+  width: 50%;
+  color:rgba(255, 255, 255, 0.7);
+}
+
+
+#signup-box-blue {
+  background-color: rgba(60, 90, 150, .6);
+  height: 100vh;
+  width: 50%;
+}
+
+#signup-box-white {
+  background-color: rgba(237, 240, 245, .6);
+  margin: 100px 100px;
+  height: 80vh;
+}
+
+#signup-box-white h2 {
+  padding: 50px 20px 30px 40px;
+  font-size: 40px;
+}
+
+#signup-box-white p {
+  padding: 0px 20px 30px 40px;
+  font-size: 20px;
+}
+
+#signup-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  // margin: 10px 10px;
+  height: 100%;
+}
+
+#signup-form input, #signup-form button {
+  background: white;
+  border-radius: 4px;
+  height: 40px;
+  font-size: 20px;
+  padding-left: 7px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+
+#signup-form input[type="text"]{
+  margin-right: 30px;
+  margin-bottom: 10px;
+  width: 42%;
+}
+
+#name {
+  margin: 0px 0px 20px 30px;
+  width: 95%;
+}
+
+#signup-form input[type="email"] {
+  width: 87%;
+  margin: 0px 20px 0px 30px;
+}
+
+#signup-form input[type="password"] {
+  width: 87%;
+  margin: 20px 20px 0px 30px;
+}
+
+
+#signup-form button, #signup-form input[type="submit"] {
+  background: rgba(97, 154, 80, .85);
+  padding-left: 0px; 
+  width: 35%;
+  border-radius: 4px;
+  height: 40px;
+  font-size: 22px;
+  margin: 0px 20px;
+  text-align: center;
+  font-family: 'Klavika Bold';
+  color: white;
+}
+
+#signup-buttons {
+  margin-top: 30px;
+  margin-left: 12%;
+}
+
+#gender {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  justify-content: flex-start;
+}
+
+#gender p, #birthday p {
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-bottom: 0px;
+  color: rgb(102, 102, 104)
+}
+
+#gender div{
+  display: inline-flex;
+  width: 50%;
+  align-items: center;
+  margin-left: 6%;
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#birthday {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  justify-content: flex-start;
+}
+
+#signup-form input[type="date"] {
+  width: 40%;
+  margin: 10px 20px 0px 30px;
+  height: 35px;
+  padding-left: 7px;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: grey;
+}
+
+#signup-form span {
+  font-size: 20px;
+  color: rgb(102, 102, 104)
+}
+
