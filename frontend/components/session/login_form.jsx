@@ -46,6 +46,7 @@ export default class LoginForm extends React.Component {
         </div>
         <div id="signup-box-blue">
           <div id="signup-box-white">
+            
             <h2>Sign In</h2>
             <p>Welcome back.</p>
             <form onSubmit={this.handleSubmit} id="signup-form">
