@@ -12,6 +12,7 @@ export default class LoginForm extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleErrors = this.handleErrors.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
   };
 
   handleInput(type) {
@@ -37,6 +38,48 @@ export default class LoginForm extends React.Component {
       )
     }
   }
+
+  loginDemo(e) {
+    e.preventDefault();
+    // this.addEmail();
+    const demoEmail = "niceguy@yahoo.com";
+    const demoPassword = "password";
+    this.setState({ email: demoEmail, password: demoPassword }, () => {
+      const user = Object.assign({}, this.state);
+      this.props.login(user).then(() => {
+        <Redirect to="/" />
+      });
+
+    });
+  }
+
+  addEmail() {
+    const demoEmail = "niceguy@yahoo.com".split();
+
+    setInterval( () => {
+      if (demoEmail.length) {
+        this.setState({ email: this.state.email + demoEmail.shift() })
+      } else {
+        this.addPassword();
+      }
+    }, 100)
+  }
+
+  addPassword() {
+    const demoPassword = "password".split();
+
+    setInterval( () => {
+      if (demoPassword.length) {
+        this.setState({ password: this.state.password + demoPassword.shift() })
+      } else {
+        const user = Object.assign({}, this.state);
+        this.props.login(user).then(() => {
+          <Redirect to="/" />
+        });
+      }   
+    }, 100)
+  }
+
   render() {
     return (
       <div id="signup-page">
@@ -46,7 +89,7 @@ export default class LoginForm extends React.Component {
         </div>
         <div id="signup-box-blue">
           <div id="signup-box-white">
-            
+
             <h2>Sign In</h2>
             <p>Welcome back.</p>
             <form onSubmit={this.handleSubmit} id="signup-form">
@@ -61,8 +104,9 @@ export default class LoginForm extends React.Component {
                 <span>or</span>
                 <Link to="/signup"><button>Sign Up</button></Link>
               </div>
-              <div>
-                <button id="demo">Demo Login</button>
+              <div id="demo-line"></div>
+              <div id="demo">
+                <button onClick={this.loginDemo}>Demo Login</button>
               </div>
             </form>
           </div>
