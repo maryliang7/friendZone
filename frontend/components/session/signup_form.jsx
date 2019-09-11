@@ -14,7 +14,7 @@ export default class SessionForm extends React.Component {
       gender: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleErrors = this.handleErrors.bind(this);
+
   };
 
   handleInput(type) {
@@ -35,19 +35,16 @@ export default class SessionForm extends React.Component {
     });
   }
 
-  handleErrors() {
-    if (this.props.errors.length !== 0) {
-      return (
-        <span id="tooltip-errors">
-          <ul>
-            {(this.props.errors.map((err, idx) => <li key={idx}> {err} </li>))}
-          </ul>
-        </span>
-      )
+
+  handleError(type) {
+    if (this.props.errors.includes(type)) {
+      if (type === "First name can't be blank" || type === "Last name can't be blank"){
+        return <span id="tooltip-errors">First name or last name can't be blank </span>
+      } else {
+        return <span id="tooltip-errors">{this.props.errors[this.props.errors.indexOf(type)]}</span>
+      }
     }
   }
-
-  
 
   render() {
     return (
@@ -66,6 +63,7 @@ export default class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit} id="signup-form">
               <div id="name">
                 <label value="First name">
+                  {this.handleError("First name can't be blank")}
                   <input type="text" value={this.state.first_name} placeholder="First name" onChange={this.handleInput("first_name")} />
                 </label>
                 <label value="Last name">
@@ -73,11 +71,13 @@ export default class SessionForm extends React.Component {
                 </label>
               </div>
               <label value="email">
+                {this.handleError("Email can't be blank")}
                 <input type="email" value={this.state.email} placeholder="Email" onChange={this.handleInput("email")} />
               </label>
               <br/>
-              <label value="Password">
+              <label value="password">
                 <input type="password" value={this.state.password} placeholder="New password" onChange={this.handleInput("password")} />
+                {this.handleError("Password is too short (minimum is 6 characters)")}
               </label>
               <div id="birthday">
                 <p>Birthday</p>
@@ -86,13 +86,13 @@ export default class SessionForm extends React.Component {
               <div id="gender">
                 <p>Gender</p>
                 <div >
+                  {this.handleError("Gender can't be blank")}
                   <input type="radio" name="gender" value="Male" onChange={this.handleInput("gender")} /> &nbsp;Male&nbsp;&nbsp;&nbsp;
                   <input type="radio" name="gender" value="Female" onChange={this.handleInput("gender")} /> &nbsp;Female&nbsp;&nbsp;&nbsp;
                   <input type="radio" name="gender" value="Other" onChange={this.handleInput("gender")} /> &nbsp;Other&nbsp;
                 </div>
               </div>
               <div id="signup-buttons">
-                {this.handleErrors()}
                 <input type="submit" value="Sign Up" />
                 <span>or</span>
                 <Link to="/login"><button onClick={() => this.props.removeErrors()}>Sign In</button></Link>

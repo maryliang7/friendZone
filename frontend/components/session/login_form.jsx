@@ -45,6 +45,12 @@ export default class LoginForm extends React.Component {
     }
   }
 
+  handleError(type) {
+    if (this.props.errors.includes(type)) {
+      return <span id="tooltip-errors">{this.props.errors[this.props.errors.indexOf(type)]}</span>
+    }
+  }
+
   loginDemo(e) {
     e.preventDefault();
     // this.addEmail();
@@ -102,13 +108,13 @@ export default class LoginForm extends React.Component {
             <p>Welcome back.</p>
             <form onSubmit={this.handleSubmit} id="signup-form">
               <label value="email">
+                {this.handleErrors()}
                 <input type="email" value={this.state.email} placeholder="Email" onChange={this.handleInput("email")} />
               </label>
               <label value="Password">
                 <input type="password" value={this.state.password} placeholder="New password" onChange={this.handleInput("password")} />
               </label>
               <div id="signup-buttons">
-                {this.handleErrors()}
                 <input type="submit" value="Sign In" />
                 <span>or</span>
                 <Link to="/signup"><button onClick={() => this.props.removeErrors()} >Sign Up</button></Link>

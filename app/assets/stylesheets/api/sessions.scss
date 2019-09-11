@@ -100,12 +100,12 @@ body {
 
 #signup-form input[type="email"] {
   width: 87%;
-  margin: 0px 20px 0px 30px;
+  margin: 0px 20px 20px 30px;
 }
 
 #signup-form input[type="password"] {
   width: 87%;
-  margin: 20px 20px 0px 30px;
+  margin: 0px 20px 0px 30px;
 }
 
 
@@ -208,7 +208,8 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
   padding-left: 40px;
 }
 
-#signup-buttons #tooltip-errors {
+
+#signup-form #tooltip-errors {
   font-size: 12px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 200px;
@@ -219,11 +220,12 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
   padding: 3px 3px;
   position: absolute;
   z-index: 1;
-  right: 100%;
+  right: 42%;
   transition: opacity 0.3s;
 }
 
-#signup-buttons #tooltip-errors::after {
+
+#signup-form #tooltip-errors::after {
   content: "";
   position: absolute;
   left: 100%;
@@ -233,4 +235,5 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
   border-style: solid;
 
 }
+
 
