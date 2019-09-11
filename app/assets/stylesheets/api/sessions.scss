@@ -32,8 +32,7 @@ body {
 
 #left-comments h1 {
   font-size: 50px;
-  padding: 30px;
-  padding-left: 50px;
+  padding: 40px 30px 30px 5px;
   color:rgb(255, 255, 255);
   text-shadow: rgb(60, 90, 150) -5px -5px, 0 0 1em rgb(60, 90, 150);
 
@@ -126,6 +125,7 @@ body {
 #signup-buttons {
   margin-top: 30px;
   margin-left: 12%;
+  position: relative;
 }
 
 #gender {
@@ -165,7 +165,12 @@ body {
   padding-left: 7px;
   font-size: 18px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: grey;
+  color: grey; 
+}
+
+input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display: none;
 }
 
 #signup-form span {
@@ -190,3 +195,42 @@ body {
   margin-left: 30%;
   margin-top: 50px;
 }
+
+#logo-header {
+  display:inline-flex;
+  align-items: center;
+}
+
+#logo-header img{
+  width: 80px;
+  height: 80px;
+  padding-right: 0px;
+  padding-left: 40px;
+}
+
+#signup-buttons #tooltip-errors {
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 200px;
+  color: white;
+  background-color: rgba(176, 81, 76, 0.8);
+  border: 2px solid rgb(140, 64, 57);
+  border-radius: 1px;
+  padding: 3px 3px;
+  position: absolute;
+  z-index: 1;
+  right: 100%;
+  transition: opacity 0.3s;
+}
+
+#signup-buttons #tooltip-errors::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 10%;
+  border-color: transparent transparent transparent rgb(140, 64, 57);
+  border-width: 8px;
+  border-style: solid;
+
+}
+

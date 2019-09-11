@@ -19,7 +19,11 @@ export default class SessionForm extends React.Component {
 
   handleInput(type) {
     return (e) => {
-      this.setState({ [type]: e.target.value })
+      if (type === "email") {
+        this.setState({ [type]: e.target.value.toLowerCase() })
+      } else {
+        this.setState({ [type]: e.target.value })
+      }
     }
   }
 
@@ -34,18 +38,25 @@ export default class SessionForm extends React.Component {
   handleErrors() {
     if (this.props.errors.length !== 0) {
       return (
-        <ul>
-          {(this.props.errors.map((err, idx) => <li key={idx}> {err} </li>))}
-        </ul>
+        <span id="tooltip-errors">
+          <ul>
+            {(this.props.errors.map((err, idx) => <li key={idx}> {err} </li>))}
+          </ul>
+        </span>
       )
     }
   }
+
+  
+
   render() {
     return (
       <div id="signup-page">
         <div id="left-comments">
-          <h1>friendZone</h1>
-          <div>{this.handleErrors()}</div>
+          <div id="logo-header">
+            <button onClick={() => window.location.reload() }><img src={window.logoURL} /></button>
+            <h1>friendZone</h1>
+          </div>
           <h3>Connect with friends and the world around you with friendZone</h3>
         </div>
         <div id="signup-box-blue">
@@ -81,9 +92,10 @@ export default class SessionForm extends React.Component {
                 </div>
               </div>
               <div id="signup-buttons">
+                {this.handleErrors()}
                 <input type="submit" value="Sign Up" />
                 <span>or</span>
-                <Link to="/login"><button>Sign In</button></Link>
+                <Link to="/login"><button onClick={() => this.props.removeErrors()}>Sign In</button></Link>
               </div>
             </form>
           </div>

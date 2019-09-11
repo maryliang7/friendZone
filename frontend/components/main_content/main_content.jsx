@@ -1,11 +1,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-
+import NewsfeedContainer from '../newsfeed/newsfeed_container';
 
 const MainContent = ({ currentUser }) => {
   const display = currentUser ? (
     <div>
-      {/* <NewsFeedContainer /> */}
+      {/* <NewsfeedContainer /> */}
     </div>
   ) : (
       <div>

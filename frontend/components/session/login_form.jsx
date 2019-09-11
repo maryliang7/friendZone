@@ -17,7 +17,11 @@ export default class LoginForm extends React.Component {
 
   handleInput(type) {
     return (e) => {
-      this.setState({ [type]: e.target.value })
+      if (type === "email") {
+        this.setState({ [type]: e.target.value.toLowerCase() })
+      } else {
+        this.setState({ [type]: e.target.value })
+      }
     }
   }
 
@@ -32,9 +36,11 @@ export default class LoginForm extends React.Component {
   handleErrors() {
     if (this.props.errors.length !== 0) {
       return (
-        <ul>
-          {(this.props.errors.map((err, idx) => <li key={idx}> {err} </li>))}
-        </ul>
+        <span id="tooltip-errors">
+          <ul>
+            {(this.props.errors.map((err, idx) => <li key={idx}> {err} </li>))}
+          </ul>
+        </span>
       )
     }
   }
@@ -84,12 +90,14 @@ export default class LoginForm extends React.Component {
     return (
       <div id="signup-page">
         <div id="left-comments">
-          <h1>friendZone</h1>
+          <div id="logo-header">
+            <button onClick={() => window.location.reload()}><img src={window.logoURL} /></button>
+            <h1>friendZone</h1>
+          </div>
           <h3>Connect with friends and the world around you with friendZone</h3>
         </div>
         <div id="signup-box-blue">
           <div id="signup-box-white">
-
             <h2>Sign In</h2>
             <p>Welcome back.</p>
             <form onSubmit={this.handleSubmit} id="signup-form">
@@ -100,9 +108,10 @@ export default class LoginForm extends React.Component {
                 <input type="password" value={this.state.password} placeholder="New password" onChange={this.handleInput("password")} />
               </label>
               <div id="signup-buttons">
+                {this.handleErrors()}
                 <input type="submit" value="Sign In" />
                 <span>or</span>
-                <Link to="/signup"><button>Sign Up</button></Link>
+                <Link to="/signup"><button onClick={() => this.props.removeErrors()} >Sign Up</button></Link>
               </div>
               <div id="demo-line"></div>
               <div id="demo">
