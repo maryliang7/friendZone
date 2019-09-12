@@ -1,0 +1,99 @@
+#nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(59, 106, 173, 0.9);
+  border-bottom: 1px solid rgb(35, 74, 122);
+  justify-content: space-between;
+  height: 43px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  color: white;
+}
+
+#nav-bar #logo {
+  font-size: 26px;
+  color: rgb(59, 106, 173);
+  background-color: white;
+  width: 22px;
+  height: 24px;
+  text-align: right;
+  padding-right: 3px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+#left-nav {
+  display: flex;
+  flex-direction: row;
+  margin-left: 17%;
+  align-items: center;
+}
+
+#left-nav input {
+  margin-left: 10px;
+  background: white;
+  border-radius: 2px;
+  height: 24px;
+  width: 400px;
+  padding-left: 3px;
+  font-size: 14px;
+  color: black;
+}
+
+
+#right-nav {
+  display: flex;
+  flex-direction: row;
+  margin-right: 25%;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+
+}
+
+#right-nav span {
+  height: 25px;
+  width: 25px;
+  min-width: 25px;;
+  background-color: black;
+  border-radius: 100px;
+  margin-right: 2px;
+}
+
+#right-nav p {
+  padding: 5px 10px 5px 5px;
+  border-right: 1px solid rgb(53, 95, 155);
+}
+
+#right-nav button {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-left: 1px solid rgb(53, 95, 155);
+
+}
+
+#right-nav button:hover, #right-nav p:hover {
+  background-color: rgb(53, 95, 155);
+  border-radius: 6px;
+}
+
+.nav-icons {
+  display: flex;
+  padding: 3px 10px 5px 5px;
+  font-size: 18px;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.nav-icons i {
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+.nav-icons i:hover {
+  cursor: pointer;
+  color: rgb(53, 95, 155);
+}

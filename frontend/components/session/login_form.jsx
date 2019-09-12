@@ -106,7 +106,7 @@ export default class LoginForm extends React.Component {
           <div id="signup-box-white">
             <h2>Sign In</h2>
             <p>Welcome back.</p>
-            <form onSubmit={this.handleSubmit} id="signup-form">
+            <form onSubmit={this.handleSubmit} onClick={() => this.props.removeErrors()} id="signup-form">
               <label value="email">
                 {this.handleErrors()}
                 <input type="email" value={this.state.email} placeholder="Email" onChange={this.handleInput("email")} />

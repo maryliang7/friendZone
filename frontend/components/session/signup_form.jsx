@@ -60,7 +60,7 @@ export default class SessionForm extends React.Component {
           <div id="signup-box-white">
             <h2>Sign up</h2>
             <p>It's quick and easy.</p>
-            <form onSubmit={this.handleSubmit} id="signup-form">
+            <form onSubmit={this.handleSubmit} onClick={() => this.props.removeErrors()} id="signup-form">
               <div id="name">
                 <label value="First name">
                   {this.handleError("First name can't be blank")}

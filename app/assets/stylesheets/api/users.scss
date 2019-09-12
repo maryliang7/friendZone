@@ -1,3 +1,91 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user-page {
+  width: 100vw;
+  height: 100%;
+  background-color: rgb(237, 240, 245);
+}
+
+.user-content {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 60%;
+  margin-left: 17%;
+}
+
+.cover-photo {
+  width: 100%;
+  height: 300px;
+  background-color: grey;
+  border: 1px solid black;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border: 5px solid white;
+  border-radius: 100px;
+  margin-top: -135px;
+  margin-left: 15px;
+  background-color: black;
+  text-shadow: grey 1px 0 5px;
+}
+.profile-nav {
+  width: 100%;
+  border: 1px solid rgb(233, 234, 237);
+  background-color: white;
+  font-size: 14px;
+  color: rgb(75, 79, 85);
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.profile-nav ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.profile-nav li {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.profile-nav li:hover {
+  background-color: rgb(245, 246, 247);
+}
+
+.pc-left {
+  width: 39%;
+  font-weight: 100;
+}
+
+.pc-left h4 {
+  margin: 10px 0px;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.pc-left-about,
+.pc-left-photos,
+.pc-left-friends {
+  width: 100%;
+  height: 250px;
+  border: 1px solid rgb(233, 234, 237);
+  background-color: white;
+  padding: 3px 5px;
+  margin-bottom: 10px;
+}
+
+.pc-left-photos {
+  height: 375px;
+
+}
+
+.pc-left-friends {
+  height: 375px;
+
+}

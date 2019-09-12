@@ -217,10 +217,10 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
   background-color: rgba(176, 81, 76, 0.8);
   border: 2px solid rgb(140, 64, 57);
   border-radius: 1px;
-  padding: 3px 3px;
+  padding: 3px 6px;
   position: absolute;
   z-index: 1;
-  right: 42%;
+  right: 43%;
   transition: opacity 0.3s;
 }
 
