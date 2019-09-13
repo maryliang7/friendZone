@@ -1,14 +1,9 @@
 import React from 'react';
-import PostsFormContainer from '../posts/posts_form_container';
 import { Link } from 'react-router-dom';
 
-export default class UserShow extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
+export default class UserPhoto extends React.Component {
   render() {
-    return(
+    return (
       <div className="user-page">
         <div className="user-content">
           <div className="cover-photo">
@@ -21,30 +16,18 @@ export default class UserShow extends React.Component {
           </div>
           <div className="profile-nav">
             <ul>
-              <li className="user-nav-first" id="current-tab">Timeline</li>
+              <Link to={`/users/${this.props.currentUser.id}`}><li className="user-nav-first">Timeline</li></Link>
               <Link to={`/users/${this.props.currentUser.id}/about`}><li>About</li></Link>
               <Link to={`/users/${this.props.currentUser.id}/friends`}><li>Friends</li></Link>
-              <Link to={`/users/${this.props.currentUser.id}/photos`}><li>Photos</li></Link>
+              <li id="current-tab">Photos</li>
             </ul>
           </div>
           <section className="profile-content">
-            <div className="pc-left">
-              <div className="pc-left-about">
-                <h4>Intro</h4>
-              </div>
-              <div className="pc-left-photos">
-                <h4>Photos</h4>
-              </div>
-              <div className="pc-left-friends">
-                <h4>Friends</h4>
-              </div>
-            </div>
-            <div className="pc-right">
-              <div className="profile-post-form">
-                <PostsFormContainer />
-              </div>
-              <div className="profile-posts">
-
+            <div className="user-photo">
+              <p>Photos</p>
+              <div className="photo-bottom">
+                <div className="photo-left"></div>
+                <div className="photo-right"></div>
               </div>
             </div>
 

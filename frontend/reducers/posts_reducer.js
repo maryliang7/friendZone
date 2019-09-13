@@ -1,15 +1,15 @@
 import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST } from '../actions/post_actions';
-import merge from 'lodash/merge';
+
 
 const postsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_POSTS:
-      return merge({}, action.posts);
+      return Object.assign({}, action.posts);
     case RECEIVE_POST:
-      return merge({}, state, { [action.post.id]: action.post });
+      return Object.assign({}, state, { [action.post.id]: action.post });
     case REMOVE_POST:
-      let newState = merge({}, state);
+      let newState = Object.assign({}, state);
       delete newState[action.postId];
       return newState;
     default:

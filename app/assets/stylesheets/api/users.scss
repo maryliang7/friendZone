@@ -6,13 +6,16 @@
 .user-page {
   width: 100vw;
   height: 100%;
+  margin-top: 43px;
   background-color: rgb(237, 240, 245);
+  min-height: 100vh;
 }
 
 .user-content {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 60%;
-  margin-left: 17%;
+  margin-left: 20%;
+  max-width: 900px;
 }
 
 .cover-photo {
@@ -20,6 +23,35 @@
   height: 300px;
   background-color: grey;
   border: 1px solid black;
+  position: relative;
+}
+
+.friend-button {
+  padding: 6px;
+  position: absolute;
+  margin-top: 29%;
+  border: 1px solid lightgrey;
+  margin-left: 75%;
+  background: white;
+  border-radius: 1px;
+}
+
+.message-button {
+  padding: 6px 12px;
+  position: absolute;
+  margin-top: 29%;
+  border: 1px solid lightgrey;
+  margin-left: 85%;
+  background: white;
+  border-radius: 1px;
+}
+
+.profile-name {
+  position: absolute;
+  margin-left: 23%;
+  margin-top: 29%;
+  color: white;
+  font-size: 22px;
 }
 
 .profile-pic {
@@ -38,8 +70,7 @@
   border: 1px solid rgb(233, 234, 237);
   background-color: white;
   font-size: 14px;
-  color: rgb(75, 79, 85);
-  font-weight: 300;
+  color: rgb(52, 87, 150);
   margin-bottom: 10px;
 }
 .profile-nav ul {
@@ -47,17 +78,28 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+
 }
 
 .profile-nav li {
   padding: 10px 10px;
   cursor: pointer;
+  font-weight: 500;
+  border-right: 1px solid rgb(233, 234, 237);
+}
+
+.user-nav-first {
+  border-left: 1px solid rgb(233, 234, 237);
 }
 
 .profile-nav li:hover {
   background-color: rgb(245, 246, 247);
 }
 
+.profile-content {
+  display: flex;
+  flex-direction: row;
+}
 .pc-left {
   width: 39%;
   font-weight: 100;
@@ -88,4 +130,57 @@
 .pc-left-friends {
   height: 375px;
 
+}
+
+.pc-right {
+  width: 58%;
+  margin-left: 3%;
+}
+
+.profile-post-form {
+  width: 100%;
+  height: 175px;
+  border: 1px solid rgb(233, 234, 237);
+  background-color: white;
+}
+
+#current-tab {
+  color: rgb(75, 79, 85);
+  position: relative;
+  cursor: default;
+}
+
+#current-tab:hover {
+  background-color: white;
+}
+
+#current-tab::after {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 40%;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent rgb(237, 240, 245) transparent
+}
+
+.user-about,
+.user-friend,
+.user-photo {
+  width: 100%;
+  height: 350px;
+  border: 1px solid rgb(233, 234, 237);
+  background-color: white;
+}
+
+.user-about p,
+.user-friend p,
+.user-photo p {
+  padding: 10px;
+  width: 97.7%;
+  border: 1px solid rgb(233, 234, 237);
+  background-color: rgb(245, 246, 247);
+  color: rgb(75, 79, 86);
+  font-weight: bolder;
+  font-size: 20px;
 }

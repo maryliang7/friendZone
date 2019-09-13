@@ -18,6 +18,12 @@ export const signup = (user) => (dispatch) => (
     .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
+export const updateUser = (user) => (dispatch) => (
+  APIUtil.updateUser(user)
+    .then(received_user => dispatch(receiveCurrentUser(received_user)))
+    .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+);
+
 export const logout = () => (dispatch) => (
   APIUtil.logout()
     .then(() => dispatch(logoutCurrentUser()))

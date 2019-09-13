@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import UserShow from './user_show';
+import UserAbout from './user_about';
 import { sendFriendRequest, deleteFriendRequest, deleteFriendship } from '../../actions/friend_actions';
 
 
@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch) => ({
   deleteFriendship: (friendship) => dispatch(deleteFriendship(friendship))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserShow);
+export default connect(mapStateToProps, mapDispatchToProps)(UserAbout);

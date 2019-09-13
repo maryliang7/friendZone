@@ -4,8 +4,11 @@ export default class PostsForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      body: ""
+      body: "",
+      author_id: this.props.currentUser,
+      location_id: this.props.user
     }
+    
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -24,7 +27,7 @@ export default class PostsForm extends React.Component {
     return(
       <div className="post-form">
         <form onSubmit={this.handleSubmit}>
-          <textarea value={this.state.body} onChange={this.handleInput()} cols="30" rows="10">Create a post..</textarea>
+          <textarea value={this.state.body} onChange={this.handleInput()} cols="35" rows="11">Create a post..</textarea>
           <input type="submit" value="Post"/>
         </form>
       </div>

@@ -1,12 +1,8 @@
 import React from 'react';
-import PostsFormContainer from '../posts/posts_form_container';
 import { Link } from 'react-router-dom';
 
-export default class UserShow extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
+export default class UserAbout extends React.Component {
   render() {
     return(
       <div className="user-page">
@@ -21,30 +17,18 @@ export default class UserShow extends React.Component {
           </div>
           <div className="profile-nav">
             <ul>
-              <li className="user-nav-first" id="current-tab">Timeline</li>
-              <Link to={`/users/${this.props.currentUser.id}/about`}><li>About</li></Link>
+              <Link to={`/users/${this.props.currentUser.id}`}><li className="user-nav-first">Timeline</li></Link>
+              <li id="current-tab">About</li>
               <Link to={`/users/${this.props.currentUser.id}/friends`}><li>Friends</li></Link>
               <Link to={`/users/${this.props.currentUser.id}/photos`}><li>Photos</li></Link>
             </ul>
           </div>
           <section className="profile-content">
-            <div className="pc-left">
-              <div className="pc-left-about">
-                <h4>Intro</h4>
-              </div>
-              <div className="pc-left-photos">
-                <h4>Photos</h4>
-              </div>
-              <div className="pc-left-friends">
-                <h4>Friends</h4>
-              </div>
-            </div>
-            <div className="pc-right">
-              <div className="profile-post-form">
-                <PostsFormContainer />
-              </div>
-              <div className="profile-posts">
-
+            <div className="user-about">
+              <p>About</p>
+              <div className="about-bottom">
+                <div className="about-left"></div>
+                <div className="about-right"></div>
               </div>
             </div>
 

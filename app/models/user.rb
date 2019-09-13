@@ -14,6 +14,14 @@ class User < ApplicationRecord
     foreign_key: :location_id,
     class_name: :post
 
+  # has_many :friends,
+  #   foreign_key: :location_id,
+  #   class_name: :post
+
+  # has_many :requests,
+  #   foreign_key: :location_id,
+  #   class_name: :post
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user
