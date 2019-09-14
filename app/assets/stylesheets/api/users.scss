@@ -15,7 +15,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 60%;
   margin-left: 20%;
-  max-width: 900px;
+  width: 900px;
 }
 
 .cover-photo {
@@ -29,9 +29,9 @@
 .friend-button {
   padding: 6px;
   position: absolute;
-  margin-top: 29%;
+  margin-top: 260px;
   border: 1px solid lightgrey;
-  margin-left: 75%;
+  margin-left: 670px;
   background: white;
   border-radius: 1px;
 }
@@ -39,17 +39,17 @@
 .message-button {
   padding: 6px 12px;
   position: absolute;
-  margin-top: 29%;
+  margin-top: 260px;
   border: 1px solid lightgrey;
-  margin-left: 85%;
+  margin-left: 750px;
   background: white;
   border-radius: 1px;
 }
 
 .profile-name {
   position: absolute;
-  margin-left: 23%;
-  margin-top: 29%;
+  margin-left: 200px;
+  margin-top: 260px;
   color: white;
   font-size: 22px;
 }
@@ -171,6 +171,7 @@
   height: 350px;
   border: 1px solid rgb(233, 234, 237);
   background-color: white;
+  margin-bottom: 50px;
 }
 
 .user-about p,

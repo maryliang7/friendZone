@@ -8,19 +8,28 @@ class User < ApplicationRecord
 
   has_many :posts,
     foreign_key: :author_id,
-    class_name: :post
+    class_name: :Post
 
   has_many :wall_posts,
     foreign_key: :location_id,
-    class_name: :post
+    class_name: :Post
 
-  # has_many :friends,
-  #   foreign_key: :location_id,
-  #   class_name: :post
+  has_many :sentFriendships,
+    foreign_key: :friend_one,
+    class_name: :Friendship
 
-  # has_many :requests,
-  #   foreign_key: :location_id,
-  #   class_name: :post
+  has_many :acceptedFriendships,
+    foreign_key: :friend_two,
+    class_name: :Friendship
+
+  has_many :sentRequests,
+    foreign_key: :sender_id,
+    class_name: :FriendRequest
+
+  has_many :receiverRequests,
+    foreign_key: :receiver_id,
+    class_name: :FriendRequest
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
@@ -41,6 +50,10 @@ class User < ApplicationRecord
     self.session_token = SecureRandom.urlsafe_base64
     self.save!
     self.session_token
+  end
+
+  def friends
+    User.joins(:sentFriendships).joins(:acceptedFriendships).where.not(id: self.id)
   end
 
   private

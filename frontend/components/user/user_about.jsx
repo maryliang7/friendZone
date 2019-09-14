@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import Tabs from './about_tab';
 
 export default class UserAbout extends React.Component {
   render() {
+    console.log(this.props.user)
+    const aboutPane = [
+      {title: 'Overview', content: this.props.user},
+      {title: 'Work and Education', content: this.props.user},
+      {title: 'Places They Lived', content: this.props.user},
+      {title: 'Contact and Basic Info', content: this.props.user}
+    ]
     return(
       <div className="user-page">
         <div className="user-content">
@@ -27,8 +34,7 @@ export default class UserAbout extends React.Component {
             <div className="user-about">
               <p>About</p>
               <div className="about-bottom">
-                <div className="about-left"></div>
-                <div className="about-right"></div>
+                <Tabs aboutPane={aboutPane} />
               </div>
             </div>
 

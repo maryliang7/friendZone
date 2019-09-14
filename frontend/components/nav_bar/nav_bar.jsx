@@ -22,7 +22,6 @@ const NavBar = ({ currentUser, logout }) => {
   ) : (
     <p></p>
     )
-    console.log(currentUser);
   return (
     <div>{display}</div>
   ) 

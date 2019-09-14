@@ -1,0 +1,90 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-size: 14px;
+  height: 305px;
+}
+
+.tab-header {
+  width: 28%;
+  height: 100%;
+  border-right: 1px solid rgb(233, 234, 237);
+  color: rgb(144, 148, 156);
+  
+}
+
+.tab-header li {
+  margin: 30px 20px;
+  cursor: pointer;
+}
+
+.tab-header li:hover {
+  color: black;
+}
+
+.active {
+  color: black;
+  text-decoration: underline solid rgb(60, 90, 150);
+  // border-left: 2px solid rgb(60, 90, 150);
+  // margin-left: 0;
+
+}
+
+.tab-content {
+  width: 70%;
+
+}
+
+.a-overview,
+.a-wande {
+  padding: 10px 30px 30px 30px;
+}
+
+.a-overview div{
+  padding: 30px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.a-overview span {
+  color: rgb(73, 109, 160);
+}
+
+.a-wande section {
+  display: flex;
+  flex-direction: column;
+  margin: 35px 10px;
+}
+
+.a-wande span,
+.a-contact .a-title {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgb(144, 148, 156);
+  border-bottom: 1px solid lightgray;
+}
+
+.a-wande .a-sub-content {
+  color: rgb(73, 109, 160);
+  padding-top: 15px;
+}
+
+.a-contact {
+  padding: 0px 40px;
+  font-size: 13px;
+}
+
+.a-outer-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 200px;
+}
+
+.a-outer-div span {
+  color: rgb(144, 148, 156);
+  margin: 15px 0px;
+}
+.a-contact .a-title {
+  padding-top: 35px;
+}
