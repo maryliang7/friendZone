@@ -1,3 +1,10 @@
+export const logout = () => (
+  $.ajax({
+    method: 'DELETE',
+    url: '/api/session'
+  })
+);
+
 export const login = (user) => (
   $.ajax({
     method: 'POST',
@@ -22,9 +29,18 @@ export const updateUser = (user) => (
   })
 );
 
-export const logout = () => (
+export const fetchUser = (id) => (
   $.ajax({
-    method: 'DELETE',
-    url: '/api/session'
+    method: 'get',
+    url: `api/users/${id}`
   })
-);
+)
+
+export const fetchAllUsers = () => (
+  $.ajax({
+    method: 'get',
+    url: `api/users`
+  })
+)
+
+

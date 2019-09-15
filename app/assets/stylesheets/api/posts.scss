@@ -1,3 +1,59 @@
 // Place all the styles related to the api/posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-box {
+  font-size: 12px;
+}
+
+.post-form-header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 8px 8px 8px;
+  border-bottom: 1px solid rgb(233, 234, 237);
+  background: rgb(245, 246, 247);
+}
+
+.post-form-header div {
+  padding: 0px 12px;
+  cursor: pointer;
+}
+
+.post-form-header .ppencil {
+  border-right: 1px solid lightgrey;
+  position: relative;
+  cursor: default;
+}
+
+.post-form-header .ppencil::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 40%;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent white transparent
+}
+
+.post-form-header i {
+  padding-right: 5px;
+}
+
+.post-form textarea {
+  width: 510px;
+  height: 60px;
+  resize: none;
+  padding: 15px;
+  border-bottom: 1px solid rgb(233, 234, 237);
+  font-size: 12px;
+}
+
+.post-form input {
+  color: white;
+  background-color: rgb(60, 90, 150);
+  margin-left: 450px;
+  margin-top: 10px;
+  padding: 5px 17px;
+  border-radius: 2px;
+
+}

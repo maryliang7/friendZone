@@ -41,23 +41,23 @@ export default class Tabs extends React.Component {
     if (pane.title === 'Overview') {
       return(
       <div className="a-overview">
-        <div><i class="fas fa-briefcase"></i> Work<span> {pane.content.work} Software Engineer at Amazon</span></div>
-        <div><i class="fas fa-graduation-cap"></i> Studied at<span> {pane.content.education}</span></div>
-        <div><i class="fas fa-home"></i> Lives in<span> {pane.content.location}</span></div>
+        <div><i className="fas fa-briefcase"></i> Work<span> {pane.content.work}</span></div>
+        <div><i className="fas fa-graduation-cap"></i> Studied at<span> {pane.content.education}</span></div>
+        <div><i className="fas fa-home"></i> Lives in<span> {pane.content.location}</span></div>
       </div>
       )
     } else if (pane.title === 'Work and Education') {
       return(
         <div className="a-wande">
-          <section><span>Work</span><div className="a-sub-content">{pane.content.work}Software Engineer</div></section>
-          <section><span>Education</span><div className="a-sub-content">{pane.content.education}App Academy</div></section>
+          <section><span>Work</span><div className="a-sub-content">{pane.content.work}</div></section>
+          <section><span>Education</span><div className="a-sub-content">{pane.content.education}</div></section>
         </div>
       )
     } else if (pane.title === 'Places They Lived') {
       return (
         <div className="a-wande">
-          <section><span>Current City</span><div className="a-sub-content">{pane.content.location}San Francisco</div></section>
-          <section><span>Hometown</span><div className="a-sub-content">{pane.content.hometown}San Diego</div></section>
+          <section><span>Current City</span><div className="a-sub-content">{pane.content.location}</div></section>
+          <section><span>Hometown</span><div className="a-sub-content">{pane.content.hometown}</div></section>
         </div>
       )
     } else if (pane.title === 'Contact and Basic Info') {

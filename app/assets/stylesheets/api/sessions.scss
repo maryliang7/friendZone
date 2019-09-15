@@ -17,6 +17,7 @@ body {
 
 #signup-page {
   width: 100%;
+  min-width: 1440px;
   display: flex;
   margin-right: 0;
   background-image: image-url('basic_friends.jpg');
@@ -28,6 +29,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 50%;
+  min-width: 720px;
 }
 
 #left-comments h1 {
@@ -50,6 +52,7 @@ body {
   background-color: rgba(60, 90, 150, .6);
   height: 100vh;
   width: 50%;
+  min-width: 720px;
 }
 
 #signup-box-white {
@@ -73,7 +76,7 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   // margin: 10px 10px;
-  height: 100%;
+  height: 75%;
 }
 
 #signup-form input, #signup-form button {
@@ -220,7 +223,7 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
   padding: 3px 6px;
   position: absolute;
   z-index: 1;
-  right: 43%;
+  right: 44%;
   transition: opacity 0.3s;
 }
 
@@ -237,3 +240,8 @@ input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calen
 }
 
 
+@media all and (max-width: 1600px) {
+  #signup-form #tooltip-errors {
+    right: 42%;
+  }
+}

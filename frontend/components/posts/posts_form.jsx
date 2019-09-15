@@ -25,9 +25,13 @@ export default class PostsForm extends React.Component {
 
   render() {
     return(
-      <div className="post-form">
-        <form onSubmit={this.handleSubmit}>
-          <textarea value={this.state.body} onChange={this.handleInput()} cols="35" rows="11">Create a post..</textarea>
+      <div className="post-box">
+        <div className="post-form-header">
+          <div className="ppencil"><i className="fas fa-pencil-alt"></i>Create Post</div>
+          <div><i className="fas fa-camera"></i>Photo/Video</div>
+        </div>
+        <form className="post-form" onSubmit={this.handleSubmit}>
+          <textarea value={this.state.body} placeholder="Create a post.." onChange={this.handleInput()} />
           <input type="submit" value="Post"/>
         </form>
       </div>

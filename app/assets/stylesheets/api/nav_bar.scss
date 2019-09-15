@@ -50,11 +50,12 @@
 #right-nav {
   display: flex;
   flex-direction: row;
-  margin-right: 23%;
+  margin-right: 12%;
+  margin-left: 45px;
   align-items: center;
   font-size: 12px;
   font-weight: 500;
-
+  min-width: 360px;
 }
 
 #right-nav span {

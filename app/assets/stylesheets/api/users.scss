@@ -9,6 +9,7 @@
   margin-top: 43px;
   background-color: rgb(237, 240, 245);
   min-height: 100vh;
+  min-width: 1440px;
 }
 
 .user-content {
@@ -33,7 +34,7 @@
   border: 1px solid lightgrey;
   margin-left: 670px;
   background: white;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .message-button {
@@ -41,9 +42,25 @@
   position: absolute;
   margin-top: 260px;
   border: 1px solid lightgrey;
+  margin-left: 770px;
+  background: white;
+  border-radius: 2px;
+}
+
+.friend-button i,
+.message-button i {
+  margin-right: 3px;
+}
+
+.edit-prof-button {
+  padding: 6px;
+  position: absolute;
+  margin-top: 260px;
+  border-radius: 2px;
   margin-left: 750px;
   background: white;
-  border-radius: 1px;
+  font-weight: 200;
+  text-align: center;
 }
 
 .profile-name {
@@ -101,15 +118,10 @@
   flex-direction: row;
 }
 .pc-left {
-  width: 39%;
+  width: 35%;
   font-weight: 100;
 }
 
-.pc-left h4 {
-  margin: 10px 0px;
-  font-size: 14px;
-  font-weight: 200;
-}
 
 .pc-left-about,
 .pc-left-photos,
@@ -118,7 +130,7 @@
   height: 250px;
   border: 1px solid rgb(233, 234, 237);
   background-color: white;
-  padding: 3px 5px;
+  padding: 13px 15px;
   margin-bottom: 10px;
 }
 
@@ -133,8 +145,8 @@
 }
 
 .pc-right {
-  width: 58%;
-  margin-left: 3%;
+  width: 60%;
+  margin-left: 5%;
 }
 
 .profile-post-form {
@@ -168,7 +180,8 @@
 .user-friend,
 .user-photo {
   width: 100%;
-  height: 350px;
+  height: 100%;
+  min-height: 350px;
   border: 1px solid rgb(233, 234, 237);
   background-color: white;
   margin-bottom: 50px;
@@ -177,6 +190,8 @@
 .user-about p,
 .user-friend p,
 .user-photo p {
+  display: flex;
+  align-items: center;
   padding: 10px;
   width: 97.7%;
   border: 1px solid rgb(233, 234, 237);
@@ -184,4 +199,53 @@
   color: rgb(75, 79, 86);
   font-weight: bolder;
   font-size: 20px;
+}
+
+.user-about img,
+.user-friend img,
+.user-photo img {
+  margin-right: 5px;
+}
+
+.pc-left-about .fa-info-circle {
+  background-color: rgb(60, 90, 150);
+  border: 5px solid rgb(60, 90, 150);
+  color: white;
+  border-radius: 100px;
+  margin-right: 8px;
+}
+
+.pc-left-photos i {
+  background-color: rgb(176, 214, 101);
+  border: 5px solid rgb(176, 214, 101);
+  color: white;
+  border-radius: 100px;
+  margin-right: 8px;
+}
+
+.pc-left-friends i {
+  background-color: rgb(226, 54, 108);
+  border: 5px solid rgb(226, 54, 108);
+  color: white;
+  border-radius: 100px;
+  margin-right: 8px;
+  padding: 2px 0px;
+}
+
+.intro-about {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.intro-about section {
+  padding: 5px 0px;
+}
+
+.intro-about i {
+  padding-right: 5px;
+}
+
+.fa-map-marker-alt {
+  padding-left: 2px;
+  margin-right: 2px;
 }
