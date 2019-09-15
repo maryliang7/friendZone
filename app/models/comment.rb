@@ -16,6 +16,6 @@ class Comment < ApplicationRecord
 
   has_many :children,
     foreign_key: :parent_id,
-    class_name: :Comment,
-    optional: true
+    class_name: :Comment
+    
 end
