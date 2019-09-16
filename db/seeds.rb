@@ -9,8 +9,8 @@
 require 'open-uri'
 
 demo = User.create(first_name: "Nice", last_name: "Guy", email: "niceguy@yahoo.com", gender: "Male", password: "password")
-demoPP = open('https://s3.amazonaws.com/friendzone-images/NiceGuyPP.jpg')
-demoCP = open('https://s3.amazonaws.com/friendzone-images/NiceGuyCP.jpg')
+demoPP = open('https://friendzone-images.s3-us-west-1.amazonaws.com/NiceGuyPP.jpg')
+demoCP = open('https://friendzone-images.s3-us-west-1.amazonaws.com/NiceGuyCP.jpg')
 demo.profilepic.attach(io: demoPP, filename: 'NiceGuyPP.jpg')
 demo.coverpic.attach(io: demoCP, filename: 'NiceGuyCP.jpg')
 

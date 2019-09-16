@@ -2,7 +2,8 @@ class User < ApplicationRecord
   validates :email, :password_digest, :session_token, :first_name, :last_name, :gender, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
-
+  validate :ensure_photos
+  
   attr_reader :password
   after_initialize :ensure_session_token
 
@@ -35,6 +36,15 @@ class User < ApplicationRecord
     foreign_key: :receiver_id,
     class_name: :FriendRequest
 
+
+  def ensure_photos
+    unless self.coverpic.attached?
+      errors[:coverpic] << "Cover photo be attached"
+    end
+    unless self.profilepic.attached?
+      errors[:profilepic] << "Profile photo must be attached"
+    end
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
