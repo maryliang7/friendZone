@@ -1,6 +1,13 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.all
+    if (params[:query] && params[:query][:location_id])
+      @posts = Post.where(location_id: params[:query][:location_id])
+    elsif ( params[:query] && params[:query][:author_id])
+      @posts = Post.where(author_id: params[:query][:author_id])
+    else
+      @posts = Post.all
+    end
+    render :index
   end
 
   def show

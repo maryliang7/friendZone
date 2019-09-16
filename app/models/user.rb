@@ -6,11 +6,16 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_one_attached :profilepic
+  has_one_attached :coverpic
+
+  # has_many_attached :photos
+
   has_many :posts,
     foreign_key: :author_id,
     class_name: :Post
 
-  has_many :wall_posts,
+  has_many :wallPosts,
     foreign_key: :location_id,
     class_name: :Post
 

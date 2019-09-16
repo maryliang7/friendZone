@@ -21,11 +21,12 @@ export default class UserFriend extends React.Component {
       <div className="user-page">
         <div className="user-content">
           <div className="cover-photo">
+            <img src={this.props.user.coverPicUrl} />
             <p className="profile-name">{this.props.user.firstName} {this.props.user.lastName}</p>
             {coverButtons}
           </div>
           <div className="profile-pic">
-
+            <img src={this.props.user.profilePicUrl} />
           </div>
           <div className="profile-nav">
             <ul>

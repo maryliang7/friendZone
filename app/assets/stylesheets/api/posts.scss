@@ -55,5 +55,76 @@
   margin-top: 10px;
   padding: 5px 17px;
   border-radius: 2px;
+}
 
+.one-post {
+  height: 100%;
+  width: 500px;
+  margin-top: 10px;
+  border: 1px solid rgb(233, 234, 237);
+  background-color: white;
+  padding: 20px 20px 15px 20px;
+}
+.post-headers {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-photo {
+  height: 40px;
+  width: 40px;
+  background-color: black;
+  border-radius: 100px;
+  margin-right: 7px;
+}
+
+.post-photo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+}
+
+.post-users {
+  color: rgb(60, 90, 150);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.fa-caret-right {
+  margin: 0px 4px;
+}
+
+.post-info p {
+  font-size: 11px;
+  margin-top: 4px;
+  color: grey;
+}
+
+.post-body {
+  margin-top: 15px;
+  font-size: 16px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgb(233, 234, 237);
+}
+
+.post-lac {
+  display: flex;
+  flex-direction: row;
+  color: gray;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.post-lac p {
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.post-lac p:hover {
+  color: rgb(60, 90, 150);
+}
+
+.post-lac i {
+  margin-right: 4px;
 }

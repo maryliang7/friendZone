@@ -5,8 +5,8 @@ export default class PostsForm extends React.Component {
     super(props)
     this.state = {
       body: "",
-      author_id: this.props.currentUser,
-      location_id: this.props.user
+      author_id: this.props.currentUser.id,
+      location_id: this.props.user.id
     }
     
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,7 +14,7 @@ export default class PostsForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state).then(() => window.location.reload());
+    this.props.createPost(this.state);
   }
 
   handleInput() {

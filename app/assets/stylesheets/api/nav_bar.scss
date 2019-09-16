@@ -1,12 +1,22 @@
+.nav-bar-bg {
+  background-color: rgb(74, 120, 179);
+  border-bottom: 1px solid rgb(35, 74, 122);
+  min-width: 100vw;
+  height: 43px;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+
 #nav-bar {
   display: flex;
   flex-direction: row;
   align-items: center;
   background-color: rgb(74, 120, 179);
-  border-bottom: 1px solid rgb(35, 74, 122);
   justify-content: space-between;
   height: 43px;
-  width: 100vw;
+  width: 1440px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
   color: white;
@@ -14,6 +24,7 @@
   top: 0;
   left: 0;
   z-index: 100;
+  margin-left: 5%;
 }
 
 #nav-bar #logo {
@@ -51,7 +62,6 @@
   display: flex;
   flex-direction: row;
   margin-right: 12%;
-  margin-left: 45px;
   align-items: center;
   font-size: 12px;
   font-weight: 500;
@@ -65,6 +75,11 @@
   background-color: black;
   border-radius: 100px;
   margin-right: 2px;
+}
+#right-nav img {
+  height: 25px;
+  width: 25px;
+  border-radius: 100px;
 }
 
 #right-nav p {
@@ -102,4 +117,10 @@
 .nav-icons i:hover {
   cursor: pointer;
   color: rgb(53, 95, 155);
+}
+
+@media all and (max-width: 1700px) {
+  #nav-bar {
+    margin-left: 0%;
+  }
 }

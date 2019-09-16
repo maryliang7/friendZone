@@ -36,12 +36,7 @@ export default class UserEditForm extends React.Component {
     e.preventDefault()
     const user = Object.assign({}, this.state);
     this.props.updateUser(user).then((x) => {
-      console.log("finished!");
-      console.log(x);
-      console.log(x.user.id);
-      let user = Object.values(x.user);
-      console.log(user);
-      <Redirect to={`/users/${user[0]}/about`} />
+      this.props.history.push(`/users/${x.user.id}/about`);
     });
 
   }
@@ -53,10 +48,11 @@ export default class UserEditForm extends React.Component {
       <div className="user-page">
         <div className="user-content">
           <div className="cover-photo">
+            <img src={this.props.user.coverPicUrl} />
             <p className="profile-name">{this.props.user.firstName} {this.props.user.lastName}</p>
           </div>
           <div className="profile-pic">
-
+            <img src={this.props.user.profilePicUrl} />
           </div>
           <div className="profile-nav">
             <ul>

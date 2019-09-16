@@ -22,23 +22,25 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
   />
 );
 
-const UserAuth = ({ component: Component, path, loggedIn, currentUser, user, exact }) => (
-  <Route
-    path={path}
-    exact={exact}
-    render={props =>
-      (loggedIn && currentUser === user) ? <Component {...props} /> : <Redirect to={`/users/${user.id}`} />
-    }
-  />
-);
+// const UserAuth = ({ component: Component, path, loggedIn, currentUser, user, exact }) => {
+//   return (
+//   <Route
+//     path={path}
+//     exact={exact}
+//     render={props =>
+//       (loggedIn && currentUser === user) ? <Component {...props} /> : <Redirect to={`/users/${user.id}`} />
+//     }
+//   />
+// )};
 
 
 
 const mapStateToProps = (state, ownProps) => {
+
   return { 
     loggedIn: Boolean(state.session.id),
     currentUser: state.entities.users[state.session.id],
-    user: state.entities.users[ownProps.match.params.userId]
+    // user: state.entities.users[ownProps.match.params.userId]
   };
 };
 
@@ -56,9 +58,9 @@ export const ProtectedRoute = withRouter(
   )(Protected)
 );
 
-export const UserAuthRoute = withRouter(
-  connect(
-    mapStateToProps,
-    null
-  )(UserAuth)
-);
+// export const UserAuthRoute = withRouter(
+//   connect(
+//     mapStateToProps,
+//     null
+//   )(UserAuth)
+// );

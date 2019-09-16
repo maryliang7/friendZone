@@ -19,8 +19,8 @@ const removePost = (postId) => ({
   postId
 });
 
-export const fetchPosts = () => (dispatch) => (
-  APIUtil.fetchPosts().then(posts => dispatch(receiveAllPosts(posts)))
+export const fetchPosts = (query) => (dispatch) => (
+  APIUtil.fetchPosts(query).then(posts => dispatch(receiveAllPosts(posts)))
 );
 
 export const fetchPost = (id) => (dispatch) => (
