@@ -9,10 +9,10 @@
 require 'open-uri'
 User.destroy_all
 
-demo = User.create(first_name: "Nice", last_name: "Guy", email: "niceguy@yahoo.com", gender: "Male", password: "password")
+demo = User.new(first_name: "Nice", last_name: "Guy", email: "niceguy@yahoo.com", gender: "Male", password: "password")
 demoPP = open('https://friendzone-images.s3-us-west-1.amazonaws.com/NiceGuyPP.jpg')
 demoCP = open('https://friendzone-images.s3-us-west-1.amazonaws.com/NiceGuyCP.jpg')
 demo.profilepic.attach(io: demoPP, filename: 'NiceGuyPP.jpg')
 demo.coverpic.attach(io: demoCP, filename: 'NiceGuyCP.jpg')
-
+demo.save!
 
