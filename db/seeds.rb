@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
+User.destroy_all
 
 demo = User.create(first_name: "Nice", last_name: "Guy", email: "niceguy@yahoo.com", gender: "Male", password: "password")
 demoPP = open('https://friendzone-images.s3-us-west-1.amazonaws.com/NiceGuyPP.jpg')

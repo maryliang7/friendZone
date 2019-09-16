@@ -1,0 +1,1 @@
+@friendship.extract! :id, :friend_one, :friend_two
