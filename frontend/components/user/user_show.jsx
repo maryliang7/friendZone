@@ -7,20 +7,52 @@ import { formatDateAbout } from '../../util/date_util';
 export default class UserShow extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      sender_id: "",
+      receiver_id: ""
+    }
+    this.unfriend = this.unfriend.bind(this);
+    this.addFriend = this.addFriend.bind(this);
+    this.removeRequest = this.removeRequest.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAllUsers();
   }
 
+  unfriend() {
+    this.props.deleteFriendship(this.props.isFriends.id);
+  }
+
+  addFriend() {
+    // debugger
+    this.setState({ sender_id: this.props.currentUser.id, receiver_id: this.props.user.id }, () => {
+      this.props.sendFriendRequest(this.state);
+    })
+  }
+
+  removeRequest() {
+    this.props.deleteFriendRequest(this.props.requested.id);
+  }
+
   render() {
+    let friendButtonStatus;
+    debugger
+    if (this.props.isFriends.length) {
+      friendButtonStatus = <button className="friend-button b-strangers" title="Unfriend" onClick={this.unfriend}><i className="fas fa-check"></i>Friends</button>
+    } else if (this.props.requested.length) {
+      friendButtonStatus = <button className="friend-button b-added" title="Delete Friend Request" onClick={this.removeRequest}><i className="fas fa-spinner"></i>Friend Request Sent</button>
+    } else {
+      friendButtonStatus = <button className="friend-button b-friends" onClick={this.addFriend}><i className="fas fa-user-plus"></i>Add Friend</button>
+    }
+
     const coverButtons = (this.props.user === this.props.currentUser) ? (
       <div>
         <Link to={`/users/${this.props.currentUser.id}/edit`}><button className="edit-prof-button"><i className="fas fa-user-edit"></i> Update Profile</button></Link>
       </div>
     ) : (
       <div>
-        <button className="friend-button"><i className="fas fa-user-plus"></i>Add Friend</button>
+        {friendButtonStatus}
         <button className="message-button"><i className="far fa-envelope"></i>Message</button>
       </div>
     )

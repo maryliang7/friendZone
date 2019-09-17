@@ -4,7 +4,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import LoginFormContainer from './session/login_form_container'
 import SignupFormContainer from './session/signup_form_container'
 import MainContentContainer from './main_content/maint_content_container';
-import { AuthRoute, ProtectedRoute, UserAuthRoute } from '../util/route_util.jsx';
+import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import NewsfeedContainer from './newsfeed/newsfeed_container';
 import UserShowContainer from './user/user_show_container';
 import UserAboutContainer from './user/user_about_container';

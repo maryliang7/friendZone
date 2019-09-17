@@ -1,7 +1,7 @@
 class Api::FriendshipsController < ApplicationController
 
-  def create(frienship_params)
-    @friendship = Friendship.new(frienship_params)
+  def create
+    @friendship = Friendship.new(friendship_params)
 
     if @friendship.save
       render :show

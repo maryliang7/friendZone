@@ -10,8 +10,8 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     # @user.profilepic.attach(io: File.open("/Users/maryliang/Desktop/friendZone/app/assets/images/facebook_default.jpg"), filename: "facebook_default.jpg")
     # @user.coverpic.attach(io: File.open("/Users/maryliang/Desktop/friendZone/app/assets/images/facebook_cover.jpg"), filename: "facebook_cover.jpg")
-    defaultPP = open('https://s3.amazonaws.com/friendzone-images/facebook_default.jpg')
-    defaultCP = open('https://s3.amazonaws.com/friendzone-images/facebook_cover.jpg')
+    defaultPP = open('https://friendzone-images.s3-us-west-1.amazonaws.com/facebook_default.jpg')
+    defaultCP = open('https://friendzone-images.s3-us-west-1.amazonaws.com/facebook_cover.jpg')
     @user.profilepic.attach(io: defaultPP, filename: 'facebook_default.jpg')
     @user.coverpic.attach(io: defaultCP, filename: 'facebook_cover.jpg')
 

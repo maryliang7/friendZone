@@ -1,11 +1,11 @@
 // Friend requests
 
-export const fetchFriendRequests = () => {
-  $.ajax({
-    method: 'get',
-    url: '/api/friend_requests'
-  })
-}
+// export const fetchFriendRequests = () => {
+//   $.ajax({
+//     method: 'get',
+//     url: 'api/friend_requests'
+//   })
+// }
 
 // export const fetchFriendRequest = (id) => {
 //   $.ajax({
@@ -14,30 +14,32 @@ export const fetchFriendRequests = () => {
 //   })
 // }
 
-export const sendFriendRequest = (request) => (
+export const sendFriendRequest = (friend_request) => {
+  // debugger
+  return (
   $.ajax({
     method: 'post',
-    url: '/api/friend_requests',
-    data: { request }
+    url: 'api/friend_requests',
+    data: { friend_request }
   })
-)
+)}
 
-export const deleteFriendRequest = (request) => (
+export const deleteFriendRequest = (friend_request) => (
   $.ajax({
     method: 'delete',
-    url: `/api/friend_requests/${request.id}`
+    url: `api/friend_requests/${friend_request.id}`
   })
 )
 
 
 // Friendships
 
-export const fetchFriendships = () => {
-  $.ajax({
-    method: 'get',
-    url: '/api/friendships'
-  })
-}
+// export const fetchFriendships = () => {
+//   $.ajax({
+//     method: 'get',
+//     url: 'api/friendships'
+//   })
+// }
 
 // export const fetchFriendship = (id) => {
 //   $.ajax({
@@ -47,17 +49,17 @@ export const fetchFriendships = () => {
 // }
 
 
-export const addFriendship = (request) => (
+export const addFriendship = (friendship) => (
   $.ajax({
     method: 'post',
-    url: '/api/friendships',
-    data: { request }
+    url: 'api/friendships',
+    data: { friendship }
   })
 )
 
-export const deleteFriendship = (request) => (
+export const deleteFriendship = (friendship) => (
   $.ajax({
     method: 'delete',
-    url: `/api/friendships/${request.id}`
+    url: `api/friendships/${friendship.id}`
   })
 )

@@ -1,7 +1,9 @@
 class Api::FriendRequestsController < ApplicationController
 
-  def create(frienship_req_params)
-    @friendship_req = Friendship.new(frienship_params)
+  def create
+
+    @friendship_req = FriendRequest.new(friendship_req_params)
+    # @friendship_req.sender_id = current_user.id
 
     if @friendship_req.save
       render :show
@@ -11,7 +13,7 @@ class Api::FriendRequestsController < ApplicationController
   end
 
   def destroy
-    @friendship_req = Friendship.find(params[:id])
+    @friendship_req = FriendRequest.find(params[:id])
     if @friendship_req.destroy
       render :show
     end
@@ -19,7 +21,7 @@ class Api::FriendRequestsController < ApplicationController
 
   private
   def friendship_req_params
-    params.require(:friendship_request).permit(:sender_id, :receiver_id)
+    params.require(:friend_request).permit(:sender_id, :receiver_id)
   end
 
 end
