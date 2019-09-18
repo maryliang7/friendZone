@@ -4,7 +4,6 @@
     json.profilePicUrl url_for(user.profilepic)
     json.coverPicUrl url_for(user.coverpic)
     # json.partial! 'user', user: user
-    jason.array! user.friends
   end
 end
 

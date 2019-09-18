@@ -32,7 +32,7 @@ class User < ApplicationRecord
     foreign_key: :sender_id,
     class_name: :FriendRequest
 
-  has_many :receiverRequests,
+  has_many :receivedRequests,
     foreign_key: :receiver_id,
     class_name: :FriendRequest
 

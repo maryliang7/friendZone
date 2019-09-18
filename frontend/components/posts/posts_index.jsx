@@ -9,6 +9,11 @@ export default class PostsIndex extends React.Component {
   componentDidMount() {
     this.props.fetchPosts({ location_id: this.props.user.id })
   }
+
+  componentWillUnmount() {
+    this.props.clearPosts();
+  }
+  
   render() {
     if (!this.props.posts) {
       return null;

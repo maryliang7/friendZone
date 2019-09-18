@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FriendButtonContainer from '../button/friend_button_container';
+
 
 export default class UserFriend extends React.Component {
 
   componentDidMount() {
-    this.props.fetchAllUsers();
+    // this.props.fetchAllUsers();
+    this.props.fetchUser(this.props.match.params.userId)
+
   }
   render() {
     const coverButtons = (this.props.user === this.props.currentUser) ? (
@@ -13,7 +17,7 @@ export default class UserFriend extends React.Component {
       </div>
     ) : (
         <div>
-          <button className="friend-button"><i className="fas fa-user-plus"></i>Add Friend</button>
+          <FriendButtonContainer />
           <button className="message-button"><i className="far fa-envelope"></i>Message</button>
         </div>
       )

@@ -1,17 +1,33 @@
-export const allFriends = (person) => {
-  return [];
+
+export const sentRequest = (state, currentUser, user) => {
+  // debugger
+  if (state.entities.users[currentUser.id].sentRequests) {
+    let allFriendRequests = Object.values(state.entities.users[currentUser.id].sentRequests);
+    let request = allFriendRequests.filter(request => request.receiverId === user );
+    return request;
+  }
 }
 
-export const allRequests = (person) => {
-
+export const receivedRequest = (state, currentUser, user) => {
+  if (state.entities.users[currentUser.id].receivedRequests) {
+    let allReceivedRequests = Object.values(state.entities.users[currentUser.id].receivedRequests);
+    let request = allReceivedRequests.filter(request => request.senderId === user);
+    return request;
+  }
 }
 
-export const sentRequest = (state, p1, p2) => {
-  let allFriendRequests = Object.values(state.entities.friendRequests);
-  return allFriendRequests.filter(request => ((request[senderId] === p1.id && fship[receiverId] === p2.id) || (fship[senderId] === p2.id && fship[receiverId] === p1.id)))
-}
+export const friendshipId = (state, currentUser, user) => {
+  // debugger
+  let friendship;
+  if (state.entities.users[currentUser.id].acceptedFriendships) {
+    let aFriendship = Object.values(state.entities.users[currentUser.id].acceptedFriendships)
+    aFriendship = aFriendship.filter(friendship => friendship.friendTwo === currentUser.id)
+    if (aFriendship.length) friendship = aFriendship;
+  } else if (state.entities.users[currentUser.id].sentFriendships) {
+    let sFriendship = Object.values(state.entities.users[currentUser.id].sentFriendships)
+    sFriendship = sFriendship.filter(friendship => friendship.friendOne === user)
+    if (sFriendship.length) friendship = sFriendship;
+  }
 
-export const isFriends = (state, p1, p2) => {
-  let allFriendships = Object.values(state.entities.friendships);
-  return allFriendships.filter(fship => ((fship[friendOne] === p1.id && fship[friendTwo] === p2.id) || (fship[friendOne] === p2.id && fship[friendTwo] === p1.id)))
+  return friendship;
 }

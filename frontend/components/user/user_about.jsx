@@ -1,20 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Tabs from './about_tab';
+import FriendButtonContainer from '../button/friend_button_container';
+
 
 export default class UserAbout extends React.Component {
   componentDidMount() {
-    this.props.fetchAllUsers();
+    // this.props.fetchAllUsers();
+    this.props.fetchUser(this.props.match.params.userId)
+
   }
   render() {
-    console.log(this.props.user);
+
     const coverButtons = (this.props.user === this.props.currentUser) ? (
       <div>
         <Link to={`/users/${this.props.currentUser.id}/edit`}><button className="edit-prof-button"><i className="fas fa-user-edit"></i> Update Profile</button></Link>
       </div>
     ) : (
         <div>
-          <button className="friend-button"><i className="fas fa-user-plus"></i>Add Friend</button>
+          <FriendButtonContainer />
           <button className="message-button"><i className="far fa-envelope"></i>Message</button>
         </div>
       )

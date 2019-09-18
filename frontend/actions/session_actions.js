@@ -2,6 +2,7 @@ import * as APIUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
+export const RECEIVE_USER = "RECEIVE_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
@@ -26,7 +27,7 @@ export const updateUser = (user) => (dispatch) => (
 );
 
 export const fetchUser = (id) => (dispatch) => (
-  APIUtil.fetchUser(id).then(received_user => dispatch(receiveCurrentUser(received_user)))
+  APIUtil.fetchUser(id).then(received_user => dispatch(receiveUser(received_user)))
 );
 
 export const fetchAllUsers = () => (dispatch) => (
@@ -45,6 +46,11 @@ const receiveAllUsers = (users) => ({
 
 export const receiveCurrentUser = (user) => ({
   type: RECEIVE_CURRENT_USER,
+  user
+});
+
+export const receiveUser = (user) => ({
+  type: RECEIVE_USER,
   user
 });
 

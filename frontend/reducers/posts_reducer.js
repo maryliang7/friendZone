@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST } from '../actions/post_actions';
+import { RECEIVE_ALL_POSTS, CLEAR_POSTS, RECEIVE_POST, REMOVE_POST } from '../actions/post_actions';
 
 
 const postsReducer = (state = {}, action) => {
@@ -8,6 +8,8 @@ const postsReducer = (state = {}, action) => {
       return Object.assign({}, action.posts);
     case RECEIVE_POST:
       return Object.assign({}, state, { [action.post.id]: action.post });
+    case CLEAR_POSTS:
+      return {};
     case REMOVE_POST:
       let newState = Object.assign({}, state);
       delete newState[action.postId];

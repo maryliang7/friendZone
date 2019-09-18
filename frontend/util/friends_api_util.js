@@ -27,7 +27,7 @@ export const sendFriendRequest = (friend_request) => {
 export const deleteFriendRequest = (friend_request) => (
   $.ajax({
     method: 'delete',
-    url: `api/friend_requests/${friend_request.id}`
+    url: `api/friend_requests/${friend_request}`
   })
 )
 
@@ -60,6 +60,6 @@ export const addFriendship = (friendship) => (
 export const deleteFriendship = (friendship) => (
   $.ajax({
     method: 'delete',
-    url: `api/friendships/${friendship.id}`
+    url: `api/friendships/${friendship}`
   })
 )

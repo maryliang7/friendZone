@@ -3,6 +3,7 @@ import * as APIUtil from '../util/posts_api_util';
 export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
+export const CLEAR_POSTS = "CLEAR_POSTS";
 
 const receiveAllPosts = (posts) => ({
   type: RECEIVE_ALL_POSTS,
@@ -18,6 +19,10 @@ const removePost = (postId) => ({
   type: REMOVE_POST,
   postId
 });
+
+export const clearPosts = () => ({
+  type: CLEAR_POSTS
+})
 
 export const fetchPosts = (query) => (dispatch) => (
   APIUtil.fetchPosts(query).then(posts => dispatch(receiveAllPosts(posts)))

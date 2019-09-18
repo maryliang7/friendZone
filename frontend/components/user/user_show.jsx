@@ -3,47 +3,23 @@ import PostsFormContainer from '../posts/posts_form_container';
 import PostsIndexContainer from '../posts/posts_index_container';
 import { Link } from 'react-router-dom';
 import { formatDateAbout } from '../../util/date_util';
+import FriendButtonContainer from '../button/friend_button_container';
+
 
 export default class UserShow extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      sender_id: "",
-      receiver_id: ""
-    }
-    this.unfriend = this.unfriend.bind(this);
-    this.addFriend = this.addFriend.bind(this);
-    this.removeRequest = this.removeRequest.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchAllUsers();
+    // this.props.fetchAllUsers();
+    this.props.fetchUser(this.props.match.params.userId)
   }
 
-  unfriend() {
-    this.props.deleteFriendship(this.props.isFriends.id);
-  }
-
-  addFriend() {
-    // debugger
-    this.setState({ sender_id: this.props.currentUser.id, receiver_id: this.props.user.id }, () => {
-      this.props.sendFriendRequest(this.state);
-    })
-  }
-
-  removeRequest() {
-    this.props.deleteFriendRequest(this.props.requested.id);
-  }
 
   render() {
-    let friendButtonStatus;
-    debugger
-    if (this.props.isFriends.length) {
-      friendButtonStatus = <button className="friend-button b-strangers" title="Unfriend" onClick={this.unfriend}><i className="fas fa-check"></i>Friends</button>
-    } else if (this.props.requested.length) {
-      friendButtonStatus = <button className="friend-button b-added" title="Delete Friend Request" onClick={this.removeRequest}><i className="fas fa-spinner"></i>Friend Request Sent</button>
-    } else {
-      friendButtonStatus = <button className="friend-button b-friends" onClick={this.addFriend}><i className="fas fa-user-plus"></i>Add Friend</button>
+    if (Object.keys(this.props.user).length === 0) {
+      return null;
     }
 
     const coverButtons = (this.props.user === this.props.currentUser) ? (
@@ -52,14 +28,11 @@ export default class UserShow extends React.Component {
       </div>
     ) : (
       <div>
-        {friendButtonStatus}
+        <FriendButtonContainer />
         <button className="message-button"><i className="far fa-envelope"></i>Message</button>
       </div>
     )
 
-    if (Object.keys(this.props.user).length === 0) {
-      return null;
-    }
     return(
       <div className="user-page">
         <div className="user-content">
