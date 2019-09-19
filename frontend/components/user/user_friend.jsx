@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FriendButtonContainer from '../button/friend_button_container';
-
+import FriendsTable from './friends/friends_table';
 
 export default class UserFriend extends React.Component {
 
   componentDidMount() {
-    // this.props.fetchAllUsers();
+    this.props.fetchAllUsers();
     this.props.fetchUser(this.props.match.params.userId)
-
   }
   render() {
     const coverButtons = (this.props.user === this.props.currentUser) ? (
@@ -21,6 +20,15 @@ export default class UserFriend extends React.Component {
           <button className="message-button"><i className="far fa-envelope"></i>Message</button>
         </div>
       )
+
+    let displayUserFriends;
+    if (!this.props.user) {
+      return null;
+    } else if (this.props.user && this.props.user.friendIds) {
+      let userFriendIds = this.props.user.friendIds;
+      displayUserFriends = userFriendIds.map(friend => <FriendsTable key={friend} user={this.props.users[friend]} currentUser={this.props.currentUser} />)
+    }
+  
     return (
       <div className="user-page">
         <div className="user-content">
@@ -44,8 +52,7 @@ export default class UserFriend extends React.Component {
             <div className="user-friend">
               <p><img src="https://static.xx.fbcdn.net/rsrc.php/v3/yR/r/KQzTkfPSg-x.png" />Friends</p>
               <div className="friend-bottom">
-                <div className="friend-left"></div>
-                <div className="friend-right"></div>
+                {displayUserFriends}
               </div>
             </div>
 

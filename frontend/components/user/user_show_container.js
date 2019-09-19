@@ -6,8 +6,13 @@ import { fetchAllUsers, fetchUser, fetchCurrentUser } from '../../actions/sessio
 const mapStateToProps = (state, ownProps) => {
   let user = state.entities.users[ownProps.match.params.userId]
   let currentUser = state.entities.users[state.session.id]
-
-  return { user, currentUser, friends: state.entities.users[state.session.id].friendIds }
+  let friends = state.entities.users[state.session.id].friendIds
+  let firstFriendIds;
+  if (state.entities.users[ownProps.match.params.userId]) {
+    firstFriendIds = state.entities.users[ownProps.match.params.userId].friendIds.slice(0, 9);
+  }
+  let users = state.entities.users
+  return { user, currentUser, friends, firstFriendIds, users }
 };
 
 

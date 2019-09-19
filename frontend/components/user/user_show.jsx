@@ -4,7 +4,7 @@ import PostsIndexContainer from '../posts/posts_index_container';
 import { Link } from 'react-router-dom';
 import { formatDateAbout } from '../../util/date_util';
 import FriendButtonContainer from '../button/friend_button_container';
-
+import SidebarFriends from './friends/sidebar_friends';
 
 export default class UserShow extends React.Component {
   constructor(props) {
@@ -12,8 +12,8 @@ export default class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchAllUsers();
-    this.props.fetchUser(this.props.match.params.userId)
+    this.props.fetchAllUsers();
+    // this.props.fetchUser(this.props.match.params.userId)
     this.props.fetchCurrentUser(this.props.currentUser.id)
   }
 
@@ -66,6 +66,7 @@ export default class UserShow extends React.Component {
         </div>
       )
     }
+
     return(
       <div className="user-page">
         <div className="user-content">
@@ -112,6 +113,9 @@ export default class UserShow extends React.Component {
                   <i className="fas fa-users"></i>
                   Friends
                 </section>
+                <div className="sidebar-friends">
+                  {this.props.firstFriendIds.map((friendId) => <SidebarFriends key={friendId} user={this.props.users[friendId]} />)}
+                </div>
               </div>
             </div>
             <div className="pc-right">

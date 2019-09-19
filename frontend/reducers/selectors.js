@@ -47,11 +47,11 @@ export const friendshipId = (state, currentUser, user) => {
   let friendship;
   if (state.entities.users[currentUser.id].acceptedFriendships) {
     let aFriendship = Object.values(state.entities.users[currentUser.id].acceptedFriendships)
-    aFriendship = aFriendship.filter(friendship => friendship.friendOne === user)
+    aFriendship = aFriendship.filter(friendship => friendship.friendOne === currentUser.id)
     if (aFriendship.length) friendship = aFriendship;
   } else if (state.entities.users[currentUser.id].sentFriendships) {
     let sFriendship = Object.values(state.entities.users[currentUser.id].sentFriendships)
-    sFriendship = sFriendship.filter(friendship => friendship.friendTwo === currentUser.id)
+    sFriendship = sFriendship.filter(friendship => friendship.friendTwo === user)
     if (sFriendship.length) friendship = sFriendship;
   }
 

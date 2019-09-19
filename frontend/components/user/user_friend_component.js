@@ -6,8 +6,9 @@ import { fetchAllUsers, fetchUser } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.entities.users[ownProps.match.params.userId],
-  currentUser: state.entities.users[state.session.id]
-
+  currentUser: state.entities.users[state.session.id],
+  // userFriendIds: state.entities.users[ownProps.match.params.userId].friendIds,
+  users: state.entities.users
 });
 
 const mapDispatchToProps = (dispatch) => ({

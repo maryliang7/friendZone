@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
   let recReq = FriendStatus.receivedRequest(state, currentUser, num)
   let friendshipId = FriendStatus.friendshipId(state, currentUser, num)
 
-  return { user, currentUser, sentReq, recReq, friendshipId }
+  return { user, currentUser, sentReq, recReq, friendshipId, num }
 };
 
 

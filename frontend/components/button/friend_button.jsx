@@ -39,12 +39,14 @@ export default class FriendButton extends React.Component {
 
   render() {
 
-    if (this.props.friendshipId && this.props.friendshipId.length) {
+    if (this.props.currentUser && this.props.currentUser.friendIds.includes(this.props.num)) {
       return <button className="friend-button b-strangers" title="Unfriend" onClick={this.unfriend}><i className="fas fa-check"></i>Friends</button>
     } else if (this.props.sentReq && this.props.sentReq.length) {
       return <button className="friend-button b-added" title="Delete Friend Request" onClick={this.deleteRequest}><i className="fas fa-spin fa-spinner"></i>Friend Request Sent</button>
     } else if (this.props.recReq && this.props.recReq.length) {
       return <button className="friend-button b-added" title="Accept Friend Request" onClick={this.addFriendship}><i className="fas fa-plus"></i>Accept Friend Request</button>
+    } else if (this.props.user.id && this.props.currentUser && (this.props.currentUser.id === this.props.user.id)) {
+      return null
     } else {
       return <button className="friend-button b-friends" onClick={this.sendRequest}><i className="fas fa-user-plus"></i>Add Friend</button>
     }

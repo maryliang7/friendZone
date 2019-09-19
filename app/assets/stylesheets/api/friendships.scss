@@ -1,3 +1,73 @@
 // Place all the styles related to the api/friendships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sidebar-friends {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.sidebar-friend {
+  height: 115px;
+  width: 110px;
+  align-items: center;
+}
+
+.sidebar-friend img {
+  height: 90px;
+  width: 90px;
+}
+
+#sidebar-friend-name {
+  color: rgb(60, 90, 150);
+  font-size: 12px;
+  padding-left: 11%;
+  width: 70px;
+  // padding-right: 0px;
+}
+
+#sidebar-friend-name:hover,
+#userpage-friend-name:hover {
+  text-decoration: underline;
+}
+
+.friend-bottom {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.userpage-friend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // width: 410px;
+  width: 47%;
+  height: 100px;
+  margin: 10px;
+  position: relative;
+  border: 1px solid lightgray;
+
+}
+
+.userpage-friend img {
+  height: 100px;
+  width: 100px;
+}
+
+#userpage-friend-name {
+  color: rgb(60, 90, 150);
+  font-size: 12px;
+}
+
+.userpage-friend-button {
+  position: absolute;
+  width: 100px;
+  left: 440px;
+  top: 77px;
+}
+
+
