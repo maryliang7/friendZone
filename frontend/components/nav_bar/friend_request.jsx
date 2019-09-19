@@ -1,5 +1,4 @@
 import React from 'react';
-import { fetchAllUsers } from '../../util/session_api_util';
 import FriendRequestItemContainer from './friend_request_item_container';
 
 export default class FriendRequests extends React.Component {
@@ -12,7 +11,6 @@ export default class FriendRequests extends React.Component {
 
   componentDidMount() {
     this.setState({ requests: this.props.requests })
-
   }
 
   componentDidUpdate(prevProps) {
@@ -26,7 +24,6 @@ export default class FriendRequests extends React.Component {
   }
 
   render() {
-
     return (
       <ul className="request-content">
         <section>Friend Requests</section>

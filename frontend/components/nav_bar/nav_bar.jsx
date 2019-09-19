@@ -13,15 +13,10 @@ export default class NavBar extends React.Component {
     this.handleFriendRequests = this.handleFriendRequests.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchCurrentUser(this.props.currentUser.id)
-  }
-
   handleFriendRequests() {
     let friendList = document.getElementById("friend-request-div");
     friendList.classList.toggle("hidden");
     this.props.fetchAllUsers();
-    // let requestIds = this.props.requests
   }
 
   removeModal() {
@@ -31,41 +26,44 @@ export default class NavBar extends React.Component {
 
   render() {
     const { currentUser, logout } = this.props
-    const display = currentUser ? (
-      <div className="nav-bar-bg">
-        <div id="nav-bar">
-          <div id="left-nav">
-            <Link to="/"><button><h3 id="logo">f</h3></button></Link>
-            <div className="search-nav">
-              <SearchContainer />
-              <i className="fas fa-search"></i>
-            </div>
-          </div>
-          <div className="right-nav">
-            <span>
-              <img src={currentUser.profilePicUrl} />
-            </span>
-            <p><Link to={`/users/${currentUser.id}`}>{currentUser.firstName} {currentUser.lastName}</Link></p>
-            <div className="nav-icons">
-              <i onClick={this.handleFriendRequests} className="fas fa-user-friends"></i>
-              <div id="friend-request-div" className="hidden">
-                <div id="remove-friend-box" onClick={this.removeModal}>
-                </div>
-                <FriendRequestsContainer /> 
+    let friendNotification;
+    if (currentUser && currentUser.receivedRequests && Object.keys(currentUser.receivedRequests).length) {
+      friendNotification = <div id="fr-notification"></div>
+    }
+    if (currentUser) {
+      return (
+        <div className="nav-bar-bg">
+          <div id="nav-bar">
+            <div id="left-nav">
+              <Link to="/"><button><h3 id="logo">f</h3></button></Link>
+              <div className="search-nav">
+                <SearchContainer />
+                <i className="fas fa-search"></i>
               </div>
-              <i className="fab fa-facebook-messenger"></i>
-              <i className="fas fa-bell"></i>
             </div>
-            <button onClick={logout}>Log Out</button>
+            <div className="right-nav">
+              <span>
+                <img src={currentUser.profilePicUrl} />
+              </span>
+              <p><Link to={`/users/${currentUser.id}`}>{currentUser.firstName} {currentUser.lastName}</Link></p>
+              <div className="nav-icons">
+                {friendNotification}
+                <i onClick={this.handleFriendRequests} className="fas fa-user-friends"></i>
+                <div id="friend-request-div" className="hidden">
+                  <div id="remove-friend-box" onClick={this.removeModal}>
+                  </div>
+                  <FriendRequestsContainer />
+                </div>
+                <i className="fab fa-facebook-messenger"></i>
+                <i className="fas fa-bell"></i>
+              </div>
+              <button onClick={logout}>Log Out</button>
+            </div>
           </div>
         </div>
-      </div>
-    ) : (
-      <p></p>
       )
-    return (
-      <div>{display}</div>
-    ) 
+    }
+    return null;
   }
 }
 
