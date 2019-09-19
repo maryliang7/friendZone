@@ -8,9 +8,9 @@ import * as FriendStatus from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
 
-  let user = state.entities.users[ownProps.match.params.userId]
+  let user = ownProps.user || state.entities.users[ownProps.match.params.userId]
   let currentUser = state.entities.users[state.session.id]
-  let num = parseInt(ownProps.match.params.userId);
+  let num = ownProps.num || parseInt(ownProps.match.params.userId);
 
   let sentReq = FriendStatus.sentRequest(state, currentUser, num)
   let recReq = FriendStatus.receivedRequest(state, currentUser, num)

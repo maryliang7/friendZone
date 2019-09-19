@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserFriend from './user_friend';
-import { fetchAllUsers, fetchUser } from '../../actions/session_actions';
+import { fetchAllUsers, fetchUser, fetchCurrentUser } from '../../actions/session_actions';
 
 
 
@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAllUsers: () => dispatch(fetchAllUsers()),
-  fetchUser: (id) => dispatch(fetchUser(id))
+  fetchUser: (id) => dispatch(fetchUser(id)),
+  fetchCurrentUser: (id) => dispatch(fetchCurrentUser(id)),
 
 });
 

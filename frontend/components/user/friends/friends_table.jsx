@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FriendButton from '../../button/friend_button';
+import FriendButtonContainer from '../../button/friend_button_container';
 
 const FriendsTable = ({ currentUser, user }) => {
   if (!user) {
@@ -15,7 +15,7 @@ const FriendsTable = ({ currentUser, user }) => {
         <div id="userpage-friend-name">{user.firstName} {user.lastName}</div>
       </Link>
       <div className="userpage-friend-button">
-        <FriendButton currentUser={currentUser} num={user.id} user={user} />
+        <FriendButtonContainer num={user.id} user={user} />
       </div>
     </div>
   )

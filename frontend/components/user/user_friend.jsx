@@ -7,7 +7,8 @@ export default class UserFriend extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllUsers();
-    this.props.fetchUser(this.props.match.params.userId)
+    this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchCurrentUser(this.props.currentUser.id);
   }
   render() {
     const coverButtons = (this.props.user === this.props.currentUser) ? (
