@@ -22,6 +22,7 @@ body {
   margin-right: 0;
   background-image: image-url('basic_friends.jpg');
   background-size: cover;
+  min-height: 800px;
 }
 
 #left-comments {
@@ -53,12 +54,14 @@ body {
   height: 100vh;
   width: 50%;
   min-width: 720px;
+  min-height: 800px;
 }
 
 #signup-box-white {
   background-color: rgba(237, 240, 245, .6);
   margin: 100px 100px;
   height: 80vh;
+  min-height: 620px;
 }
 
 #signup-box-white h2 {
@@ -77,6 +80,7 @@ body {
   flex-direction: column;
   // margin: 10px 10px;
   height: 75%;
+  min-height: 478px;
 }
 
 #signup-form input, #signup-form button {

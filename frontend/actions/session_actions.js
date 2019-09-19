@@ -30,6 +30,10 @@ export const fetchUser = (id) => (dispatch) => (
   APIUtil.fetchUser(id).then(received_user => dispatch(receiveUser(received_user)))
 );
 
+export const fetchCurrentUser = (id) => dispatch => (
+  APIUtil.fetchUser(id).then(received_user => dispatch(receiveCurrentUser(received_user)))
+);
+
 export const fetchAllUsers = () => (dispatch) => (
   APIUtil.fetchAllUsers().then(users => dispatch(receiveAllUsers(users)))
 );

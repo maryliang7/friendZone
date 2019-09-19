@@ -207,10 +207,22 @@
   background-color: white;
   margin-bottom: 50px;
 }
+.not-friends {
+  width: 900px;
+  height: 100px;
+  border: 1px solid rgb(233, 234, 237);
+  background-color: white;
+  font-size: 12px;
+}
+
+.not-friends-bottom {
+  padding: 10px;
+}
 
 .user-about p,
 .user-friend p,
-.user-photo p {
+.user-photo p,
+.not-friends p {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -220,6 +232,10 @@
   color: rgb(75, 79, 86);
   font-weight: bolder;
   font-size: 20px;
+}
+
+.not-friends p {
+  font-size: 12px;
 }
 
 .user-about img,

@@ -14,6 +14,7 @@ export default class UserShow extends React.Component {
   componentDidMount() {
     // this.props.fetchAllUsers();
     this.props.fetchUser(this.props.match.params.userId)
+    this.props.fetchCurrentUser(this.props.currentUser.id)
   }
 
 
@@ -32,7 +33,39 @@ export default class UserShow extends React.Component {
         <button className="message-button"><i className="far fa-envelope"></i>Message</button>
       </div>
     )
-
+    // debugger
+    if ( !this.props.friends.includes(this.props.user.id) && this.props.user.id !== this.props.currentUser.id) {
+      return (
+        <div className="user-page">
+          <div className="user-content">
+            <div className="cover-photo">
+              <img src={this.props.user.coverPicUrl} />
+              <p className="profile-name">{this.props.user.firstName} {this.props.user.lastName}</p>
+              {coverButtons}
+            </div>
+            <div className="profile-pic">
+              <img src={this.props.user.profilePicUrl} />
+            </div>
+            <div className="profile-nav">
+              <ul>
+                <li className="user-nav-first" id="current-tab">Timeline</li>
+                <Link to={`/users/${this.props.user.id}/about`}><li>About</li></Link>
+                <Link to={`/users/${this.props.user.id}/friends`}><li>Friends</li></Link>
+                <Link to={`/users/${this.props.user.id}/photos`}><li>Photos</li></Link>
+              </ul>
+            </div>
+            <section className="profile-content">
+              <section className="not-friends">
+                <p>Do you know {this.props.user.firstName} {this.props.user.lastName} ?</p>
+                <div className="not-friends-bottom">
+                  Send {this.props.user.firstName} a friend request to see what they share.
+                </div>
+              </section>
+            </section>
+          </div>
+        </div>
+      )
+    }
     return(
       <div className="user-page">
         <div className="user-content">

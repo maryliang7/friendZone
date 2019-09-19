@@ -1,0 +1,30 @@
+.search-bar {
+  position: relative;
+  font-size: 13px;
+}
+
+.search-bar input {
+  height: 24px;
+  min-width: 375px;
+  font-size: 13px;
+}
+
+.search-results {
+  background-color: white;
+  border-top: none;
+  position: absolute;
+  width: 402px;
+  top: 25px;
+  left: -3px;
+  border-radius: 2px;
+  box-shadow: 0px 3px 3px lightgray;
+  max-height: 250px;
+  overflow: scroll;
+}
+
+.search-results li {
+  padding: 3px 4px;
+}
+.search-results li:hover {
+  background-color: rgb(237, 240, 246)
+}

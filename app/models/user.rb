@@ -68,7 +68,8 @@ class User < ApplicationRecord
   end
 
   def friends
-    User.joins(:sentFriendships).joins(:acceptedFriendships).where.not(id: self.id)
+    friendIds = self.acceptedFriendships.map {|el| el.friend_one } + self.sentFriendships.map {|el| el.friend_two }
+    User.find(friendIds)
   end
 
   private
