@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import UserShow from './user_show';
 import { fetchAllUsers, fetchUser, fetchCurrentUser } from '../../actions/session_actions';
-
+import { clearPosts, fetchPosts } from '../../actions/post_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let user = state.entities.users[ownProps.match.params.userId]
@@ -20,7 +20,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchAllUsers: () => dispatch(fetchAllUsers()),
   fetchCurrentUser: (id) => dispatch(fetchCurrentUser(id)),
-  fetchUser: (id) => dispatch(fetchUser(id))
+  fetchUser: (id) => dispatch(fetchUser(id)),
+  clearPosts: () => dispatch(clearPosts()),
+  fetchPosts: (query) => dispatch(fetchPosts(query))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserShow);

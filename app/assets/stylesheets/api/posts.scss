@@ -64,7 +64,18 @@
   border: 1px solid rgb(233, 234, 237);
   background-color: white;
   padding: 20px 20px 15px 20px;
+  position: relative;
 }
+
+.fa-trash-alt {
+  position: absolute;
+  color: gray;
+  right: 15px;
+  cursor: pointer;
+}
+
+
+
 .post-headers {
   display: flex;
   flex-direction: row;

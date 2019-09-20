@@ -9,7 +9,7 @@ const SidebarFriends = ({ user }) => {
     <div className="sidebar-friend">
       <Link to={`/users/${user.id}`}>
         <img src={user.profilePicUrl} />
-        <p id="sidebar-friend-name">{user.firstName} {user.lastName}</p>
+        <div id="sidebar-friend-name">{user.firstName} {user.lastName}</div>
       </Link>
     </div>
   )

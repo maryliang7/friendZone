@@ -3,11 +3,29 @@ import { formatDatePost } from '../../util/date_util';
 import { Link } from 'react-router-dom';
 
 export default class PostsIndexItem extends React.Component {
+  constructor(props) {
+    super(props)
+    this.deletePost = this.deletePost.bind(this);
+  }
 
+  deletePost() {
+    this.props.deletePost(this.props.post.id);
+  }
 
   render() {
-    // console.log(this.props);
-    let { post, users } = this.props;
+    if (!this.props.users || !this.props.post) {
+      return null
+    }
+    let { post, users, currentUser } = this.props;
+
+    let deleteButton;
+
+    if (post.authorId === currentUser.id || post.locationId === currentUser.id ) {
+      deleteButton = <i onClick={this.deletePost} className="far fa-trash-alt"></i>
+    }
+
+
+
     let title = (post.locationId === post.authorId) ? (
       <span className="post-users">{users[post.locationId].firstName} {users[post.locationId].lastName}</span>
     ) : (
@@ -21,6 +39,7 @@ export default class PostsIndexItem extends React.Component {
     )
     return (
       <div className="one-post">
+        {deleteButton}
         <div className="post-headers">
           <div className="post-photo">
             <img src={users[post.authorId].profilePicUrl} />

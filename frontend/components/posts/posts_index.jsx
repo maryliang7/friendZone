@@ -6,21 +6,25 @@ export default class PostsIndex extends React.Component {
   constructor(props) {
     super(props)
   }
+
   componentDidMount() {
     this.props.fetchPosts({ location_id: this.props.user.id })
   }
 
-  componentWillUnmount() {
-    this.props.clearPosts();
-  }
-  
-  render() {
-    if (!this.props.posts) {
-      return null;
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.userId != this.props.match.params.userId) {
+      this.props.fetchPosts({ location_id: this.props.user.id })
     }
+  }
+  render() {
+    // if (!this.props.posts) {
+    //   return null;
+    // }
+    let { currentUser } = this.props
+
     return (
       <div>
-        {this.props.posts.map((post) => <PostsIndexItemContainer key={post.id} post={post}/>)}
+        {this.props.posts.reverse().map((post) => <PostsIndexItemContainer key={post.id} currentUser={currentUser} post={post}/>)}
       </div>
     )
   }

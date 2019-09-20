@@ -35,4 +35,3 @@ json.sentFriendships do
     end
   end
 end
-

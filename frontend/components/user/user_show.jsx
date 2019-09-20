@@ -15,6 +15,8 @@ export default class UserShow extends React.Component {
     this.props.fetchAllUsers();
     // this.props.fetchUser(this.props.match.params.userId)
     this.props.fetchCurrentUser(this.props.currentUser.id)
+
+
   }
 
 
@@ -50,8 +52,8 @@ export default class UserShow extends React.Component {
               <ul>
                 <li className="user-nav-first" id="current-tab">Timeline</li>
                 <Link to={`/users/${this.props.user.id}/about`}><li>About</li></Link>
-                <Link to={`/users/${this.props.user.id}/friends`}><li>Friends</li></Link>
-                <Link to={`/users/${this.props.user.id}/photos`}><li>Photos</li></Link>
+                <li>Friends</li>
+                <li>Photos</li>
               </ul>
             </div>
             <section className="profile-content">

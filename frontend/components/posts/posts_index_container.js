@@ -5,6 +5,7 @@ import { fetchPosts, clearPosts } from '../../actions/post_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.entities.users[ownProps.match.params.userId],
+  currentUser: state.entities.users[state.session.id],
   posts: Object.values(state.entities.posts)
 })
 

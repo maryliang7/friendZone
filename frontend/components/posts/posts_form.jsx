@@ -15,11 +15,19 @@ export default class PostsForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createPost(this.state);
+    this.setState({ body: "" })
+    e.target.value = "";
   }
 
   handleInput() {
     return (e) => {
       this.setState({ body: e.target.value })
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.userId != this.props.match.params.userId) {
+      this.props.fetchUser(this.props.match.params.userId)
     }
   }
 
@@ -31,7 +39,7 @@ export default class PostsForm extends React.Component {
           <div><i className="fas fa-camera"></i>Photo/Video</div>
         </div>
         <form className="post-form" onSubmit={this.handleSubmit}>
-          <textarea value={this.state.body} placeholder="Create a post.." onChange={this.handleInput()} />
+          <textarea placeholder="Create a post.." value={this.state.body} onChange={this.handleInput()} />
           <input type="submit" value="Post"/>
         </form>
       </div>
