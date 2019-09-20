@@ -1,24 +1,39 @@
-# README
+# friendZone
+> friendZone is a clone of Facebook, a social media site where users are able to connect and share snippets of their life with people they know.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Demo
+[friendZone Demo](https://friendzone-io.herokuapp.com/)
 
-Things you may want to cover:
+## Site Features
+---
+### Signup Page
+![Signup Page](/app/assets/images/signup_page.gif)
 
-* Ruby version
+> Users are able to create their own profile. Errors, if any, are rendered on signup page and login page using tooltips.
 
-* System dependencies
+### User Friending
 
-* Configuration
+![Sending a Request](/app/assets/images/send_request.gif)
 
-* Database creation
+> Users are only able to post on profile's of their friends. Users are able to send a request to friend others.
 
-* Database initialization
+![Sending a Request](/app/assets/images/accepting_request.gif)
 
-* How to run the test suite
+> Users receive notifications for friend requests. When accepted the profile becomes available for viewing. When unfriended the profile goes back to private.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Built With 
 
-* ...
+* Rails
+* PostgreSQL
+* jBuilder
+* React/Redux
+* Amazon Web Services
+
+## Future Goals
+
+* Comments
+* Reactions
+* Uploading photos
+* Messenging
+* Groups
