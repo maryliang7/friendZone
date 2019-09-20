@@ -13,9 +13,10 @@ export default class PostsIndexItem extends React.Component {
   }
 
   render() {
-    if (!this.props.users || !this.props.post) {
+    if (Object.keys(this.props.users).length < 2 || !this.props.post ) {
       return null
     }
+
     let { post, users, currentUser } = this.props;
 
     let deleteButton;

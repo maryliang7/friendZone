@@ -8,18 +8,18 @@ export default class PostsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts({ location_id: this.props.user.id })
+    this.props.fetchPosts(this.props.locationIds)
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.userId != this.props.match.params.userId) {
-      this.props.fetchPosts({ location_id: this.props.user.id })
+      this.props.fetchPosts(this.props.locationIds)
     }
   }
   render() {
-    // if (!this.props.posts) {
-    //   return null;
-    // }
+    if (!this.props.posts) {
+      return null;
+    }
     let { currentUser } = this.props
 
     return (

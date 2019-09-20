@@ -14,6 +14,7 @@ export default class PostsForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // debugger
     this.props.createPost(this.state);
     this.setState({ body: "" })
     e.target.value = "";
@@ -27,7 +28,10 @@ export default class PostsForm extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.userId != this.props.match.params.userId) {
-      this.props.fetchUser(this.props.match.params.userId)
+      this.setState({ location_id: this.props.user.id }, () => (
+        this.props.fetchUser(this.props.match.params.userId)
+        
+      ))
     }
   }
 

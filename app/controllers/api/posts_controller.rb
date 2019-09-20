@@ -1,5 +1,6 @@
 class Api::PostsController < ApplicationController
   def index
+
     if !params[:query]
       @posts = Post.all
     elsif params[:query][:location_id]

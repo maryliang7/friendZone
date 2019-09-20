@@ -1,0 +1,86 @@
+.newsfeed {
+  height: 100%;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgb(237, 240, 245);
+}
+
+
+.newsfeed-content {
+  margin-top: 10px;
+  padding-top: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 540px;
+  margin-left: 30%;
+  position: relative;
+}
+
+.newsfeed-postform {
+  background-color: white;
+  padding-bottom: 20px;
+}
+
+.newsfeed-index {
+  // background-color: white;
+}
+
+.newsfeed-ads {
+  position: absolute;
+  left: -170px;
+  top: 60px;
+  font-size: 14px;
+  list-style-type: none;
+
+}
+
+.newsfeed-header {
+  display: flex;
+  flex-direction: rows;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.newsfeed-header img {
+  height: 20px;
+  width: 20px;
+  border-radius: 100px;
+  margin-right: 5px;
+}
+
+.newsfeed-ads li {
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+.newsfeed-ads li:hover,
+.newsfeed-default {
+  background-color: rgb(245, 246, 247);
+  outline: 1px solid rgb(221, 223, 226)
+}
+
+.newsfeed-default {
+  color: rgb(60, 90, 150)
+}
+
+.fa-newspaper {
+  color: black;
+}
+
+.newsfeed-ads i {
+  margin-right: 5px;
+  padding-left: 5px;
+}
+
+.ad-groups {
+  margin-top: 20px;
+
+}
+
+.ad-groups li{
+  color: rgb(100, 100, 100);
+}
+
+.ad-groups i {
+  color: black;
+}
+
