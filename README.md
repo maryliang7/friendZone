@@ -1,6 +1,14 @@
 # friendZone
 > friendZone is a clone of Facebook, a social media site where users are able to connect and share snippets of their life with people they know.
 
+## Built With 
+
+* Rails
+* PostgreSQL
+* jBuilder
+* React/Redux
+* Amazon Web Services
+
 ## Demo
 [friendZone Demo](https://friendzone-io.herokuapp.com/)
 
@@ -21,14 +29,6 @@
 
 > Users receive notifications for friend requests. When accepted the profile becomes available for viewing. When unfriended the profile goes back to private.
 
-
-## Built With 
-
-* Rails
-* PostgreSQL
-* jBuilder
-* React/Redux
-* Amazon Web Services
 
 ## Future Goals
 
