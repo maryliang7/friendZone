@@ -19,25 +19,45 @@ export default class PostsIndexItem extends React.Component {
 
     let { post, users, currentUser } = this.props;
 
-    let deleteButton;
+    let deleteButton, title;
 
     if (post.authorId === currentUser.id || post.locationId === currentUser.id ) {
       deleteButton = <i onClick={this.deletePost} className="far fa-trash-alt"></i>
     }
 
+    // debugger
+    if (this.props.newsfeed) {
+      title = (post.locationId === post.authorId) ? (
+          <span className="post-users">
+            <Link to={`/users/${post.locationId}`}>
+              {users[post.locationId].firstName} {users[post.locationId].lastName}
+            </Link>
+          </span>
+        ) : (
+          <span className="post-users">
+            <Link to={`/users/${post.authorId}`}>
+              {users[post.authorId].firstName} {users[post.authorId].lastName}
+            </Link>
+            <i className="fas fa-caret-right"></i>
+            <Link to={`/users/${post.locationId}`}>
+              {users[post.locationId].firstName} {users[post.locationId].lastName}
+            </Link>
+          </span>
+        )
+    } else {
+      title = (post.locationId === post.authorId) ? (
+        <span className="post-users">{users[post.locationId].firstName} {users[post.locationId].lastName}</span>
+      ) : (
+        <span className="post-users">
+          <Link to={`/users/${post.authorId}`}>
+            {users[post.authorId].firstName} {users[post.authorId].lastName}
+          </Link>
+          <i className="fas fa-caret-right"></i>
+          {users[post.locationId].firstName} {users[post.locationId].lastName}
+        </span>
+      )
+    }
 
-
-    let title = (post.locationId === post.authorId) ? (
-      <span className="post-users">{users[post.locationId].firstName} {users[post.locationId].lastName}</span>
-    ) : (
-      <span className="post-users">
-        <Link to={`/users/${post.authorId}`}>
-          {users[post.authorId].firstName} {users[post.authorId].lastName}
-        </Link>
-        <i className="fas fa-caret-right"></i>
-        {users[post.locationId].firstName} {users[post.locationId].lastName}
-      </span>
-    )
     return (
       <div className="one-post">
         {deleteButton}

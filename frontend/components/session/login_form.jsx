@@ -13,6 +13,7 @@ export default class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleErrors = this.handleErrors.bind(this);
     this.loginDemo = this.loginDemo.bind(this);
+    this.loginDemoTwo = this.loginDemoTwo.bind(this);
   };
 
   handleInput(type) {
@@ -55,6 +56,20 @@ export default class LoginForm extends React.Component {
     e.preventDefault();
     // this.addEmail();
     const demoEmail = "niceguy@yahoo.com";
+    const demoPassword = "password";
+    this.setState({ email: demoEmail, password: demoPassword }, () => {
+      const user = Object.assign({}, this.state);
+      this.props.login(user).then(() => {
+        <Redirect to="/" />
+      });
+
+    });
+  }
+
+  loginDemoTwo(e) {
+    e.preventDefault();
+    // this.addEmail();
+    const demoEmail = "jborame@gmail.com";
     const demoPassword = "password";
     this.setState({ email: demoEmail, password: demoPassword }, () => {
       const user = Object.assign({}, this.state);
@@ -122,6 +137,9 @@ export default class LoginForm extends React.Component {
               <div id="demo-line"></div>
               <div id="demo">
                 <button onClick={this.loginDemo}>Demo Login</button>
+              </div>
+              <div id="demo">
+                <button onClick={this.loginDemoTwo}>Demo Login Two</button>
               </div>
             </form>
           </div>

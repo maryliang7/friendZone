@@ -9,8 +9,9 @@ const mapStateToProps = (state, ownProps) => {
   let currentUser = state.entities.users[state.session.id];
   let posts = Object.values(state.entities.posts);
   let locationIds = ownProps.locationIds || { location_id: num };
+  let newsfeed = ownProps.newsfeed || false;
 
-  return { user, currentUser, posts, locationIds }
+  return { user, currentUser, posts, locationIds, newsfeed }
 }
 
 const mapDispatchToProps = (dispatch) => ({
