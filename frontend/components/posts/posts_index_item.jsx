@@ -1,6 +1,7 @@
 import React from 'react';
 import { formatDatePost } from '../../util/date_util';
 import { Link } from 'react-router-dom';
+import CommentsFormContainer from '../comments/comments_form_container';
 
 export default class PostsIndexItem extends React.Component {
   constructor(props) {
@@ -59,24 +60,26 @@ export default class PostsIndexItem extends React.Component {
     }
 
     return (
-      <div className="one-post">
-        {deleteButton}
-        <div className="post-headers">
-          <div className="post-photo">
-            <img src={users[post.authorId].profilePicUrl} />
+      <div className="post-and-comment">
+        <div className="one-post">
+          {deleteButton}
+          <div className="post-headers">
+            <div className="post-photo">
+              <img src={users[post.authorId].profilePicUrl} />
+            </div>
+            <div className="post-info">
+              {title}
+              <p>{formatDatePost(this.props.post.createdAt)}</p>
+            </div>
           </div>
-          <div className="post-info">
-            {title}
-            <p>{formatDatePost(this.props.post.createdAt)}</p>
+          <section className="post-body">{post.body}</section>
+          <div className="post-attached-photo"></div>
+          <div className="post-lac">
+            <p><i className="far fa-thumbs-up"></i>Like</p>
+            <p><i className="far fa-comment-alt"></i>Comment</p>
           </div>
         </div>
-        <section className="post-body">{post.body}</section>
-        <div className="post-attached-photo"></div>
-        <div className="post-lac">
-          <p><i className="far fa-thumbs-up"></i>Like</p>
-          <p><i className="far fa-comment-alt"></i>Comment</p>
-        </div>
-        {/* <Comments post={post.id}/> */}
+          <CommentsFormContainer post={post.id}/>
       </div>
     )
   }

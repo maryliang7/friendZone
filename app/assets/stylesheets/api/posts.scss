@@ -57,11 +57,16 @@
   border-radius: 2px;
 }
 
+.post-and-comment {
+  border: 1px solid rgb(233, 234, 237);
+  background-color: white;
+  margin-top: 10px;
+  width: 540px;
+}
+
 .one-post {
   height: 100%;
   width: 500px;
-  margin-top: 10px;
-  border: 1px solid rgb(233, 234, 237);
   background-color: white;
   padding: 20px 20px 15px 20px;
   position: relative;
@@ -84,7 +89,6 @@
 .post-photo {
   height: 40px;
   width: 40px;
-  background-color: black;
   border-radius: 100px;
   margin-right: 7px;
 }
@@ -93,6 +97,7 @@
   height: 40px;
   width: 40px;
   border-radius: 100px;
+  border: 1px solid #e9eaed;
 }
 
 .post-users {
