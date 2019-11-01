@@ -1,5 +1,4 @@
 import React from 'react';
-import { userInfo } from 'os';
 import PostsIndexItemContainer from './posts_index_item_container';
 
 export default class PostsIndex extends React.Component {
