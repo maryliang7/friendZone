@@ -134,6 +134,10 @@
   background-color: rgb(245, 246, 247);
 }
 
+.disabled-nav:hover {
+  cursor: not-allowed;
+}
+
 .profile-content {
   display: flex;
   flex-direction: row;
@@ -141,6 +145,7 @@
 .pc-left {
   width: 39%;
   font-weight: 100;
+  position: relative;
 }
 
 
@@ -213,6 +218,7 @@
   border: 1px solid rgb(233, 234, 237);
   background-color: white;
   font-size: 12px;
+  margin-bottom: 15px;
 }
 
 .not-friends-bottom {
@@ -292,4 +298,11 @@
 .fa-map-marker-alt {
   padding-left: 2px;
   margin-right: 2px;
+}
+
+.private-dot {
+  position: absolute;
+  top: 20px;
+  left: 650px;
+  color: rgb(161, 177, 202);
 }

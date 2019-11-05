@@ -1,12 +1,18 @@
 .nav-bar-bg {
   background-color: rgb(74, 120, 179);
   border-bottom: 1px solid rgb(35, 74, 122);
-  min-width: 100vw;
+  width: 100vw;
+  min-width: 1440px;
   height: 43px;
   position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
+}
+
+.nav-cont {
+  height: 43px;
+  width: 100vw;
 }
 
 #nav-bar {
@@ -16,13 +22,12 @@
   background-color: rgb(74, 120, 179);
   justify-content: space-between;
   height: 43px;
-  width: 1440px;
+  width: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
   color: white;
   position: fixed;
   top: 0;
-  left: 0;
   z-index: 100;
   margin-left: 5%;
 }
@@ -62,7 +67,6 @@
 
 .search-nav i {
   color: rgb(153, 150, 150);
-
 }
 
 
@@ -74,6 +78,7 @@
   font-size: 12px;
   font-weight: 500;
   min-width: 360px;
+  margin-left: 30px;
 }
 
 .right-nav span {
@@ -132,5 +137,11 @@
 @media all and (max-width: 1700px) {
   #nav-bar {
     margin-left: 0%;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  #left-nav {
+    margin-left: 15%;
   }
 }

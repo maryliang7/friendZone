@@ -2,6 +2,7 @@
   height: 100%;
   width: 100vw;
   min-height: 100vh;
+  min-width: 1000px;
   background-color: rgb(237, 240, 245);
 }
 
@@ -18,10 +19,7 @@
 .newsfeed-postform {
   background-color: white;
   padding-bottom: 20px;
-}
-
-.newsfeed-index {
-  // background-color: white;
+  width: 100%;
 }
 
 .newsfeed-ads {
@@ -84,3 +82,8 @@
   color: black;
 }
 
+@media all and (max-width: 1440px) {
+  .newsfeed-content {
+    margin-left: 32%;
+  }
+}

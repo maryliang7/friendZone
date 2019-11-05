@@ -4,7 +4,7 @@ import {
   ADD_FRIEND,
   DELETE_FRIEND
 } from '../actions/friend_actions';
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 
 export const friendRequestsReducer = (state = {}, action) => {
@@ -18,6 +18,8 @@ export const friendRequestsReducer = (state = {}, action) => {
       let newState = Object.assign({}, state);
       delete newState[action.requestId];
       return newState;
+    case LOGOUT_CURRENT_USER:
+      return {};
     default:
       return state;
   }
@@ -29,11 +31,14 @@ export const friendshipsReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, action.user.sentFriendships, action.user.acceptedFriendships);
     case ADD_FRIEND:
+      delete action.friendship.friendOne
       return Object.assign({}, state, { [action.friendship.id]: action.friendship });
     case DELETE_FRIEND:
       let newState = Object.assign({}, state);
       delete newState[action.friendshipId];
       return newState;
+    case LOGOUT_CURRENT_USER:
+      return {};
     default:
       return state;
   }

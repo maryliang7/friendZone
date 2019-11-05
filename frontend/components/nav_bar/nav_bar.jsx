@@ -33,32 +33,35 @@ export default class NavBar extends React.Component {
     if (currentUser) {
       return (
         <div className="nav-bar-bg">
-          <div id="nav-bar">
-            <div id="left-nav">
-              <Link to="/"><button><h3 id="logo">f</h3></button></Link>
-              <div className="search-nav">
-                <SearchContainer />
-                <i className="fas fa-search"></i>
-              </div>
-            </div>
-            <div className="right-nav">
-              <span>
-                <img src={currentUser.profilePicUrl} />
-              </span>
-              <p><Link to={`/users/${currentUser.id}`}>{currentUser.firstName} {currentUser.lastName}</Link></p>
-              <div className="nav-icons">
-                {friendNotification}
-                <i onClick={this.handleFriendRequests} className="fas fa-user-friends"></i>
-                <div id="friend-request-div" className="hidden">
-                  <div id="remove-friend-box" onClick={this.removeModal}>
-                  </div>
-                  <FriendRequestsContainer />
+          <div className="nav-cont">
+            <div id="nav-bar">
+              <div id="left-nav">
+                <Link to="/"><button><h3 id="logo">f</h3></button></Link>
+                <div className="search-nav">
+                  <SearchContainer />
+                  <i className="fas fa-search"></i>
                 </div>
-                <i className="fab fa-facebook-messenger"></i>
-                <i className="fas fa-bell"></i>
               </div>
-              <button onClick={logout}>Log Out</button>
+              <div className="right-nav">
+                <span>
+                  <img src={currentUser.profilePicUrl} />
+                </span>
+                <p><Link to={`/users/${currentUser.id}`}>{currentUser.firstName} {currentUser.lastName}</Link></p>
+                <div className="nav-icons">
+                  {friendNotification}
+                  <i onClick={this.handleFriendRequests} className="fas fa-user-friends"></i>
+                  <div id="friend-request-div" className="hidden">
+                    <div id="remove-friend-box" onClick={this.removeModal}>
+                    </div>
+                    <FriendRequestsContainer />
+                  </div>
+                  <i className="fab fa-facebook-messenger"></i>
+                  <i className="fas fa-bell"></i>
+                </div>
+                <button onClick={logout}>Log Out</button>
+              </div>
             </div>
+
           </div>
         </div>
       )

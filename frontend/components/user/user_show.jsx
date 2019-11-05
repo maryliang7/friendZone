@@ -13,9 +13,9 @@ export default class UserShow extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.fetchAllUsers();
     // this.props.fetchUser(this.props.match.params.userId)
     this.props.fetchCurrentUser(this.props.currentUser.id)
+    this.props.fetchAllUsers();
 
 
   }
@@ -52,18 +52,41 @@ export default class UserShow extends React.Component {
             <div className="profile-nav">
               <ul>
                 <li className="user-nav-first" id="current-tab">Timeline</li>
-                <Link to={`/users/${this.props.user.id}/about`}><li>About</li></Link>
-                <li>Friends</li>
-                <li>Photos</li>
+                <li className="disabled-nav">About</li>
+                <li className="disabled-nav">Friends</li>
+                <li className="disabled-nav">Photos</li>
               </ul>
             </div>
-            <section className="profile-content">
+
+
+            <section className="profile-private">
               <section className="not-friends">
                 <p>Do you know {this.props.user.firstName} {this.props.user.lastName} ?</p>
                 <div className="not-friends-bottom">
                   Send {this.props.user.firstName} a friend request to see what they share.
                 </div>
               </section>
+
+              <div className="pc-left">
+                <div className="pc-left-about">
+                  <section>
+                    <i className="fas fa-info-circle"></i>
+                    Intro
+                  </section>
+                  <section className="about-bio">
+                    {this.props.user.aboutMe}
+                  </section>
+                  <div className="intro-about">
+                    <section><i className="fas fa-home"></i>Lives in {this.props.user.location}</section>
+                    <section><i className="fas fa-map-marker-alt"></i>From {this.props.user.hometown}</section>
+                    <section><i className="far fa-clock"></i>Joined {formatDateAbout(this.props.user.createdAt)}</section>
+                  </div>
+                </div>
+                <div className="private-dot">
+                  <i className="fas fa-dot-circle"></i>
+                </div>
+              </div>
+
             </section>
           </div>
         </div>
