@@ -2,6 +2,7 @@ import React from 'react';
 import { formatDatePost } from '../../util/date_util';
 import { Link } from 'react-router-dom';
 import CommentsFormContainer from '../comments/comments_form_container';
+import CommentsIndexContainer from '../comments/comments_index_container'
 
 export default class PostsIndexItem extends React.Component {
   constructor(props) {
@@ -129,7 +130,10 @@ export default class PostsIndexItem extends React.Component {
             <p><i className="far fa-comment-alt"></i>Comment</p>
           </div>
         </div>
-        <CommentsFormContainer post={post.id}/>
+        <div className="post-comments-box">
+          <CommentsIndexContainer postId={post.id} />
+          <CommentsFormContainer postId={post.id}/>
+        </div>
       </div>
     )
   }

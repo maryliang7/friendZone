@@ -6,9 +6,9 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 
 const mapStateToProps = function (state, ownProps) {
   let currentUser = state.entities.users[state.session.id];
-  let post = ownProps.post
+  let postId = ownProps.postId
 
-  return { currentUser, post }
+  return { currentUser, postId }
 
 };
 

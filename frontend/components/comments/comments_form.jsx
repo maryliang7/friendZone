@@ -6,9 +6,10 @@ export default class CommentsForm extends React.Component {
     this.state ={
       body: '',
       author_id: this.props.currentUser.id,
-      post_id: this.props.post.id,
-      parent_id: this.props.parent || null,
+      post_id: this.props.postId,
+      // parent_id: this.props.parent || null,
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {

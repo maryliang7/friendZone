@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :posts, except: [:new, :edit] do
       resources :likes, only: [:create]
     end
-    resources :comments, only: [:create, :update, :delete] do
+    resources :comments, only: [:create, :update, :destroy] do
       resources :likes, only: [:create]
     end
     resources :likes, only: [:delete]

@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
-import CommentsIndex from './comments_index';
+import CommentsItem from './comments_item';
 import { updateComment, deleteComment } from '../../actions/comment_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
   let users = state.entities.users;
-  let allComments = Object.values(state.entities.comments);
-  let comments = allComments.filter(comment => comment.postId === ownProps.postId);
-
-  return { users, comments }
+  let currentUser = state.entities.users[state.session.id]
+  let comment = ownProps.comment;
+  return { users, comment, currentUser }
 };
 
 
@@ -17,4 +16,4 @@ const mapDispatchToProps = (dispatch) => ({
   deleteComment: (id) => dispatch(deleteComment(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentsIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsItem)

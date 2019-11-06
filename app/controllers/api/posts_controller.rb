@@ -6,7 +6,6 @@ class Api::PostsController < ApplicationController
     elsif params[:query][:location_id]
       @posts = Post.where(location_id: params[:query][:location_id])
     elsif params[:query][:author_id]
-      # @posts = Post.where('author_id IN ?', params[:query][:author_id])
       @posts = Post.where(:author_id => params[:query][:author_id])
     end
 
