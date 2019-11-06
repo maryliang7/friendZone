@@ -18,6 +18,9 @@ export default class UserEditForm extends React.Component {
       work: this.props.user.work,
       hometown: this.props.user.hometown,
       languages: this.props.user.languages,
+      profilepic: null,
+      coverpic: null,
+      loading: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -34,16 +37,49 @@ export default class UserEditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const user = Object.assign({}, this.state);
-    this.props.updateUser(user).then((x) => {
+    this.setState({ loading: true })
+
+    const formData = new FormData();
+
+    formData.append('user[first_name]', this.state.first_name);
+    formData.append('user[last_name]', this.state.last_name);
+    formData.append('user[email]', this.state.email);
+    formData.append('user[education]', this.state.education);
+    formData.append('user[location]', this.state.location);
+    formData.append('user[birth_date]', this.state.birth_date);
+    formData.append('user[about_me]', this.state.about_me);
+    formData.append('user[work]', this.state.work);
+    formData.append('user[hometown]', this.state.hometown);
+    formData.append('user[languages]', this.state.languages);
+    if (this.state.profilepic) {
+      formData.append('user[profilepic]', this.state.profilepic);
+    }
+    if (this.state.coverpic) {
+      formData.append('user[coverpic]', this.state.coverpic);
+    }
+
+    this.props.updateUser(formData, this.state.id).then((x) => {
+      this.setState({ loading: false })
       this.props.history.push(`/users/${x.user.id}/about`);
     });
 
   }
 
+  handlePP(e){
+    this.setState({ profilepic: e.currentTarget.files[0] })
+  }
+
+  handleCP(e){
+    this.setState({ coverpic: e.currentTarget.files[0] })
+  }
 
   render() {
-    console.log(this.props.currentUser);
+    let loading;
+
+    if (this.state.loading) {
+      loading = <i className="fas fa-spin fa-spinner"></i>
+    }
+
     return(
       <div className="user-page">
         <div className="user-content">
@@ -71,6 +107,22 @@ export default class UserEditForm extends React.Component {
                 </ul>
                 <div className="tab-content">
                   <form className="edit-profile-form" onSubmit={this.handleSubmit}>
+                    <div>
+                      <section>Profile Picture:</section>
+                      <input type="file"
+                        id="change-profpic"
+                        accept=".jpg, .jpeg, .png"
+                        onChange={this.handlePP.bind(this)}
+                      />
+                    </div>
+                    <div>
+                      <section>Cover Picture:</section>
+                      <input type="file"
+                        id="change-covpic"
+                        accept=".jpg, .jpeg, .png"
+                        onChange={this.handleCP.bind(this)}
+                      />
+                    </div>
                     <div>
                       <section>First Name:</section>
                       <input type="text" value={this.state.first_name} placeholder={this.state.first_name} onChange={this.handleInput("first_name")} />
@@ -111,14 +163,12 @@ export default class UserEditForm extends React.Component {
                       <section>Languages:</section>
                       <input type="text" value={this.state.languages || ""} placeholder="e.g. English, Chinese, Spanish" onChange={this.handleInput("languages")} />
                     </div>
-                    <input type="submit" value="Update Profile"/>
+                    <input type="submit" value="Update Profile"/> {loading}
                   </form>
                 </div>
 
               </div>
             </div>
-
-
           </section>
 
         </div>

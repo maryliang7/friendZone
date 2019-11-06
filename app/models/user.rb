@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_one_attached :profilepic
   has_one_attached :coverpic
 
-  # has_many_attached :photos
+  has_many_attached :photos
 
   has_many :posts,
     foreign_key: :author_id,

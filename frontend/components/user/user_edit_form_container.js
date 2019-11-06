@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateUser: (user) => dispatch(updateUser(user))
+  updateUser: (user, userId) => dispatch(updateUser(user, userId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserEditForm));

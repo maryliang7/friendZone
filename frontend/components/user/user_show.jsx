@@ -13,11 +13,8 @@ export default class UserShow extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    // this.props.fetchUser(this.props.match.params.userId)
     this.props.fetchCurrentUser(this.props.currentUser.id)
     this.props.fetchAllUsers();
-
-
   }
 
 

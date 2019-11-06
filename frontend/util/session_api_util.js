@@ -21,13 +21,16 @@ export const signup = (user) => (
   })
 );
 
-export const updateUser = (user) => (
-  $.ajax({
+export const updateUser = (user, userId) => {
+  // debugger
+  return $.ajax({
     method: 'PATCH',
-    url: `/api/users/${user.id}`,
-    data: { user }
+    url: `/api/users/${userId}`,
+    data: user,
+    contentType: false,
+    processData: false
   })
-);
+};
 
 export const fetchUser = (id) => (
   $.ajax({
