@@ -23,7 +23,12 @@ export default class PostsIndex extends React.Component {
 
     return (
       <div>
-        {this.props.posts.reverse().map((post) => <PostsIndexItemContainer newsfeed={this.props.newsfeed} key={post.id} currentUser={currentUser} post={post}/>)}
+        {this.props.posts.map((post) => <PostsIndexItemContainer 
+          newsfeed={this.props.newsfeed} 
+          key={post.id} 
+          currentUser={currentUser} 
+          post={post}
+        />)}
       </div>
     )
   }

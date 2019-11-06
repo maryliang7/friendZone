@@ -123,6 +123,54 @@
   position: relative;
 }
 
+#messages-nav,
+#notifications-nav {
+  position: absolute;
+  top: 35px;
+  min-height: 30px;
+  width: 430px;
+  background-color: white;
+  border: 1px solid rgb(233, 234, 237);
+  color: rgb(51, 51, 51);
+  box-shadow: 0px 1px 1px lightgray;
+  z-index: 2;
+  font-size: 10px;
+  font-style: italic;
+  padding: 10px 5px;
+}
+
+#messages-nav section,
+#notifications-nav section {
+  font-size: 12px;
+  font-style: normal;
+  padding-bottom: 7.5px;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 5px;
+}
+
+#messages-nav {
+  right: 15px;
+}
+
+#notifications-nav {
+  right: 0px;
+}
+
+#messages-nav::before,
+#notifications-nav::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  right: 9%;
+  border-width: 12px;
+  border-style: solid;
+  border-color: transparent transparent white transparent
+}
+
+#notifications-nav::before {
+  right: 4%;
+}
+
 .nav-icons i {
   padding: 0px 10px;
   cursor: pointer;

@@ -36,7 +36,7 @@ export default class UserShow extends React.Component {
         <button className="message-button"><i className="far fa-envelope"></i>Message</button>
       </div>
     )
-    // debugger
+
     if ( !this.props.friends.includes(this.props.user.id) && this.props.user.id !== this.props.currentUser.id) {
       return (
         <div className="user-page">

@@ -6,7 +6,7 @@ import { clearPosts, fetchPosts } from '../../actions/post_actions';
 const mapStateToProps = (state, ownProps) => {
   let user = state.entities.users[ownProps.match.params.userId]
   let currentUser = state.entities.users[state.session.id]
-  let friends = Object.values(state.entities.friendships).map(pal => pal.friendOne === state.session.id ? pal.friendTwo : pal.friendOne);
+  let friends = Object.values(state.entities.friendships).map(pal => pal.friendOne || pal.friendTwo);
   let firstFriendIds;
   if (state.entities.users[ownProps.match.params.userId]) {
     firstFriendIds = state.entities.users[ownProps.match.params.userId].friendIds.slice(0, 9);

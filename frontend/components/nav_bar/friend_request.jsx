@@ -24,14 +24,22 @@ export default class FriendRequests extends React.Component {
   }
 
   render() {
+    if (!this.state.requests.length) {
+      return(
+        <ul className="request-content">
+          <section>Friend Requests</section>
+          <div className="no-requests">No friend requests.</div>
+        </ul>
+      )
+    }
     return (
       <ul className="request-content">
         <section>Friend Requests</section>
-        {this.state.requests.map(request => <FriendRequestItemContainer 
-                                                key={request.id}
-                                                requestId={request.id} 
-                                                user={this.props.users[request.senderId]}
-                                                />)}
+        {this.state.requests.map(request => <FriendRequestItemContainer
+          key={request.id}
+          requestId={request.id}
+          user={this.props.users[request.senderId]}
+        />)}
       </ul>
     )
   }

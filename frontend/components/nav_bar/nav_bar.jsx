@@ -8,20 +8,66 @@ export default class NavBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      users: []
+      users: [],
+      active: ""
     }
     this.handleFriendRequests = this.handleFriendRequests.bind(this);
+    this.handleMessages = this.handleMessages.bind(this);
+    this.handleNotifications = this.handleNotifications.bind(this);
+    this.removeModal = this.removeModal.bind(this);
   }
 
   handleFriendRequests() {
     let friendList = document.getElementById("friend-request-div");
+    if (this.state.active === "friendreq") {
+      this.setState({ active: "" });
+    } else {
+      this.toggleOthers("friendreq");
+    }
     friendList.classList.toggle("hidden");
     this.props.fetchAllUsers();
   }
 
+  handleMessages() {
+    let messages = document.getElementById('messages-nav');
+    if (this.state.active === "messages") {
+      this.setState({ active: "" });
+    } else {
+      this.toggleOthers("messages");
+    }
+    messages.classList.toggle("hidden");
+  }
+
+  handleNotifications() {
+    let notification = document.getElementById('notifications-nav');
+    if (this.state.active === "notifications") {
+      this.setState({ active: "" });
+    } else {
+      this.toggleOthers("notifications");
+    }
+    notification.classList.toggle("hidden");
+  }
+
+  toggleOthers(dropdown) {
+    switch (this.state.active) {
+      case "friendreq":
+        document.getElementById("friend-request-div").classList.toggle("hidden");
+        break;
+      case "messages":
+        document.getElementById("messages-nav").classList.toggle("hidden");
+        break;
+      case "notifications":
+        document.getElementById("notifications-nav").classList.toggle("hidden");
+        break;
+      default:
+        break;
+    }
+    this.setState({ active: dropdown })
+  }
+
   removeModal() {
-    let friendList = document.getElementById("friend-request-div");
-    friendList.classList.toggle("hidden");
+    this.toggleOthers(this.state.active);
+    this.setState({ active: "" })
   }
 
   render() {
@@ -50,13 +96,22 @@ export default class NavBar extends React.Component {
                 <div className="nav-icons">
                   {friendNotification}
                   <i onClick={this.handleFriendRequests} className="fas fa-user-friends"></i>
-                  <div id="friend-request-div" className="hidden">
-                    <div id="remove-friend-box" onClick={this.removeModal}>
+                    <div id="friend-request-div" className="hidden">
+                      <div id="remove-friend-box" onClick={this.removeModal}></div>
+                      <FriendRequestsContainer />
                     </div>
-                    <FriendRequestsContainer />
-                  </div>
-                  <i className="fab fa-facebook-messenger"></i>
-                  <i className="fas fa-bell"></i>
+                  <i onClick={this.handleMessages} className="fab fa-facebook-messenger"></i>
+                    <div id="messages-nav" className="hidden">
+                      <div id="remove-friend-box" onClick={this.removeModal}></div>
+                      <section>Messages</section>
+                      No messages to show.
+                    </div>
+                  <i onClick={this.handleNotifications} className="fas fa-bell"></i>
+                    <div id="notifications-nav" className="hidden">
+                      <div id="remove-friend-box" onClick={this.removeModal}></div>
+                      <section>Notifications</section>
+                      No notifications to show.
+                    </div>
                 </div>
                 <button onClick={logout}>Log Out</button>
               </div>

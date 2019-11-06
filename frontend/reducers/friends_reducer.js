@@ -31,7 +31,7 @@ export const friendshipsReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, action.user.sentFriendships, action.user.acceptedFriendships);
     case ADD_FRIEND:
-      delete action.friendship.friendOne
+      delete action.friendship.friendTwo
       return Object.assign({}, state, { [action.friendship.id]: action.friendship });
     case DELETE_FRIEND:
       let newState = Object.assign({}, state);

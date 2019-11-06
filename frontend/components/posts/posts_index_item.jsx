@@ -5,12 +5,45 @@ import CommentsFormContainer from '../comments/comments_form_container';
 
 export default class PostsIndexItem extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      edit: false,
+      body: this.props.post.body
+    }
     this.deletePost = this.deletePost.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
   }
 
   deletePost() {
     this.props.deletePost(this.props.post.id);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let newPost = {
+      id: this.props.post.id,
+      author_id: this.props.post.authorId,
+      location_id: this.props.post.locationId,
+      body: this.state.body
+    }
+    this.props.updatePost(newPost);
+    this.setState({ body: "", edit: false })
+    e.target.value = "";
+  }
+
+  handleInput() {
+    return (e) => {
+      this.setState({ body: e.target.value })
+    }
+  }
+
+  toggleEdit() {
+    if (this.state.edit) {
+      this.setState({ edit: false })
+    } else {
+      this.setState({ edit: true })
+    }
   }
 
   render() {
@@ -20,13 +53,15 @@ export default class PostsIndexItem extends React.Component {
 
     let { post, users, currentUser } = this.props;
 
-    let deleteButton, title;
+    let deleteButton, title, editButton;
 
     if (post.authorId === currentUser.id || post.locationId === currentUser.id ) {
       deleteButton = <i onClick={this.deletePost} className="far fa-trash-alt"></i>
     }
+    if (post.authorId === currentUser.id ) {
+      editButton = <i onClick={this.toggleEdit} className="far fa-edit"></i>
+    }
 
-    // debugger
     if (this.props.newsfeed) {
       title = (post.locationId === post.authorId) ? (
           <span className="post-users">
@@ -59,9 +94,24 @@ export default class PostsIndexItem extends React.Component {
       )
     }
 
+    let postContent;
+
+    if (this.state.edit) {
+      postContent = (
+        <form className="post-edit" onSubmit={this.handleSubmit}>
+          <textarea placeholder="Create a post.." value={this.state.body} onChange={this.handleInput()} />
+          <button type="button" onClick={this.toggleEdit}> Cancel</button>
+          <input type="submit" value="Done Editing" />
+        </form>
+      )
+    } else {
+      postContent = post.body
+    }
+
     return (
       <div className="post-and-comment">
         <div className="one-post">
+          {editButton}
           {deleteButton}
           <div className="post-headers">
             <div className="post-photo">
@@ -69,17 +119,17 @@ export default class PostsIndexItem extends React.Component {
             </div>
             <div className="post-info">
               {title}
-              <p>{formatDatePost(this.props.post.createdAt)}</p>
+              <p>{formatDatePost(post.createdAt)}</p>
             </div>
           </div>
-          <section className="post-body">{post.body}</section>
+          <section className="post-body">{postContent}</section>
           <div className="post-attached-photo"></div>
           <div className="post-lac">
             <p><i className="far fa-thumbs-up"></i>Like</p>
             <p><i className="far fa-comment-alt"></i>Comment</p>
           </div>
         </div>
-          <CommentsFormContainer post={post.id}/>
+        <CommentsFormContainer post={post.id}/>
       </div>
     )
   }
