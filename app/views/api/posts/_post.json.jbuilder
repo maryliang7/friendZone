@@ -7,4 +7,7 @@ json.comments do
     end
   end
 end
-# json.photoUrl url_for(post.photo)
+
+if post.photo.attached?
+  json.photoUrl url_for(post.photo)
+end

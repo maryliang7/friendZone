@@ -14,9 +14,21 @@
   background: rgb(245, 246, 247);
 }
 
-.post-form-header div {
+.post-form-header div,
+.post-form-header label {
   padding: 0px 12px;
   cursor: pointer;
+}
+
+#post-photo-upload {
+  opacity: 0;
+  display: none;
+}
+
+.post-file {
+  font-size: 10px;
+  font-style: italic;
+  margin-top: 2px;
 }
 
 .post-form-header .ppencil {
@@ -28,7 +40,7 @@
 .post-form-header .ppencil::after {
   content: "";
   position: absolute;
-  top: 10px;
+  top: 11px;
   left: 40%;
   border-width: 8px;
   border-style: solid;
@@ -53,10 +65,13 @@
 .post-edit input {
   color: white;
   background-color: rgb(60, 90, 150);
-  margin-left: 450px;
-  margin-top: 10px;
+  margin: 10px 5px 0px 450px;
   padding: 5px 17px;
   border-radius: 2px;
+}
+
+.post-form i {
+  color: rgb(60, 90, 150);
 }
 
 .post-edit textarea {
@@ -154,6 +169,14 @@
   border-bottom: 1px solid rgb(233, 234, 237);
 }
 
+
+.post-attached-photo img{
+  margin-top: 10px;
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+}
+
 .post-lac {
   display: flex;
   flex-direction: row;
@@ -175,3 +198,4 @@
 .post-lac i {
   margin-right: 4px;
 }
+

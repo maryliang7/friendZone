@@ -95,7 +95,7 @@ export default class PostsIndexItem extends React.Component {
       )
     }
 
-    let postContent;
+    let postContent, photoContent;
 
     if (this.state.edit) {
       postContent = (
@@ -107,6 +107,14 @@ export default class PostsIndexItem extends React.Component {
       )
     } else {
       postContent = post.body
+    }
+
+    if (post.photoUrl) {
+      photoContent = (
+        <div className="post-attached-photo">
+          <img src={post.photoUrl} alt="" />
+        </div>
+      )
     }
 
     return (
@@ -123,8 +131,10 @@ export default class PostsIndexItem extends React.Component {
               <p>{formatDatePost(post.createdAt)}</p>
             </div>
           </div>
-          <section className="post-body">{postContent}</section>
-          <div className="post-attached-photo"></div>
+          <section className="post-body">
+            {postContent}
+            {photoContent}
+          </section>
           <div className="post-lac">
             <p><i className="far fa-thumbs-up"></i>Like</p>
             <p><i className="far fa-comment-alt"></i>Comment</p>

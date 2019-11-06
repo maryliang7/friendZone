@@ -1,6 +1,5 @@
 class Api::PostsController < ApplicationController
   def index
-
     if !params[:query]
       @posts = Post.all
     elsif params[:query][:location_id]
@@ -48,7 +47,7 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:body, :author_id, :location_id)
+    params.require(:post).permit(:body, :author_id, :location_id, :photo)
   end
 
 end
