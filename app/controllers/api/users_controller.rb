@@ -39,12 +39,12 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.with_attached_photos.find(params[:id])
     render :show
   end
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :gender, :birth_date, :education, :location, :about_me, :work, :hometown, :languages, :coverpic, :profilepic)
+    params.require(:user).permit(:email, :password, :first_name, :last_name, :gender, :birth_date, :education, :location, :about_me, :work, :hometown, :languages, :coverpic, :profilepic, photos: [])
   end
 end

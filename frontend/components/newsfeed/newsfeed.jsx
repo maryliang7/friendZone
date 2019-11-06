@@ -38,13 +38,14 @@ export default class Newsfeed extends React.Component {
               {currentUser.firstName} {currentUser.lastName}
             </div>
             <li className="newsfeed-default"><i className="far fa-newspaper"></i>NewsFeed</li>
+            <li><i className="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/mary-liang-4455b7194/">LinkedIn</a></li>
             <li><i className="fab fa-github"></i><a href="https://github.com/maryliang7">Github</a></li>
             <li><i className="fas fa-code-branch"></i><a href="https://github.com/maryliang7/friendZone">friendZone Repo</a></li>
 
             <div className="ad-groups">
               <p>Groups</p>
               <li><i className="fas fa-paw"></i>Cool Dog Group</li>
-              <li><i className="fas fa-paw"></i>Dogspotting</li>
+              <li><i className="fas fa-binoculars"></i>Dogspotting</li>
               <li><i className="fas fa-user-ninja"></i>Subtle Asian Traits&nbsp;</li>
             
             </div>

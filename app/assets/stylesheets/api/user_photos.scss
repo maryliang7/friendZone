@@ -1,0 +1,41 @@
+.user-add-photos {
+  margin-left: 650px;
+  border: 1px solid gray;
+  padding: 5px 7px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+#add-photos {
+  display: none;
+}
+
+.photo-bottom,
+.sidebar-photos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.sidebar-photos {
+  width: 100%;
+}
+.photo-preview img {
+  height: 215px;
+  width: 215px;
+  border: 1px solid lightgray;
+  object-fit: fill;
+}
+
+.photo-mini {
+  width: 105px;
+}
+.photo-mini img {
+  height: 100px;
+  width: 100px;
+  border: 1px solid lightgray;
+  object-fit: fill;
+}

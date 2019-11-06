@@ -34,6 +34,8 @@ export default class UserShow extends React.Component {
       </div>
     )
 
+    let photos = this.props.user.photoUrls.length > 9 ? this.props.user.photoUrls.slice(0, 9) : this.props.user.photoUrls;
+
     if ( !this.props.friends.includes(this.props.user.id) && this.props.user.id !== this.props.currentUser.id) {
       return (
         <div className="user-page">
@@ -130,6 +132,9 @@ export default class UserShow extends React.Component {
                   <i className="fas fa-image"></i>
                   Photos
                 </section>
+                <div className="sidebar-photos">
+                  {photos.map((photo, idx) => <div key={idx} className="photo-mini"><img src={photo} /> </div>)}
+                </div>
               </div>
               <div className="pc-left-friends">
                 <section>

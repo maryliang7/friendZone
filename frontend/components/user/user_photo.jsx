@@ -4,10 +4,29 @@ import FriendButtonContainer from '../button/friend_button_container';
 
 
 export default class UserPhoto extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      photos: null,
+      loading: false
+    }
+  }
   componentDidMount() {
-    // this.props.fetchAllUsers();
     this.props.fetchUser(this.props.match.params.userId)
+  }
+
+  handleFiles(e) {
+    this.setState({ photos: e.currentTarget.files }, () => {
+      const { photos } = this.state;
+      const formData = new FormData();
+
+      for (let i = 0; i < photos.length; i++) {
+        formData.append('user[photos][]', photos[i]);
+      }
+  
+      this.props.updateUser(formData, this.props.currentUser.id)
+    })
+
 
   }
 
@@ -22,6 +41,24 @@ export default class UserPhoto extends React.Component {
           <button className="message-button"><i className="far fa-envelope"></i>Message</button>
         </div>
       )
+    let addPhotos;
+
+    if (this.props.user === this.props.currentUser) {
+      addPhotos = (
+        <label htmlFor="add-photos" className="user-add-photos">Add Photos <i className="fas fa-plus"></i>
+          <input type="file"
+            id="add-photos"
+            multiple
+            accept=".jpg, .jpeg, .png"
+            onChange={this.handleFiles.bind(this)}
+          />
+        </label>
+      )
+    }
+
+
+    let photos = this.props.user.photoUrls;
+
     return (
       <div className="user-page">
         <div className="user-content">
@@ -43,10 +80,14 @@ export default class UserPhoto extends React.Component {
           </div>
           <section className="profile-content">
             <div className="user-photo">
-              <p><img src="https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/oa3eD-HhoPn.png" />Photos</p>
+              <p><img src="https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/oa3eD-HhoPn.png"/>
+                Photos
+                {addPhotos}
+              </p>
               <div className="photo-bottom">
-                <div className="photo-left"></div>
-                <div className="photo-right"></div>
+                {photos.map((photo, idx) => <div key={idx} className="photo-preview"><img src={photo} /> </div>)}
+                {/* <div className="photo-left"></div>
+                <div className="photo-right"></div> */}
               </div>
             </div>
 

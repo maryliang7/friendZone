@@ -22,7 +22,6 @@ export const signup = (user) => (
 );
 
 export const updateUser = (user, userId) => {
-  // debugger
   return $.ajax({
     method: 'PATCH',
     url: `/api/users/${userId}`,
