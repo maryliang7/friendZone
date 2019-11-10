@@ -69,7 +69,7 @@ export default class LoginForm extends React.Component {
   loginDemoTwo(e) {
     e.preventDefault();
     // this.addEmail();
-    const demoEmail = "jborame@gmail.com";
+    const demoEmail = "nicegirl@yahoo.com";
     const demoPassword = "password";
     this.setState({ email: demoEmail, password: demoPassword }, () => {
       const user = Object.assign({}, this.state);
@@ -136,10 +136,10 @@ export default class LoginForm extends React.Component {
               </div>
               <div id="demo-line"></div>
               <div id="demo">
-                <button onClick={this.loginDemo}>Demo Login</button>
+                <button onClick={this.loginDemo}>Demo: Nice Guy</button>
               </div>
               <div id="demo">
-                <button onClick={this.loginDemoTwo}>Demo Login Two</button>
+                <button onClick={this.loginDemoTwo}>Demo: Nice Girl</button>
               </div>
             </form>
           </div>
