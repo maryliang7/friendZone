@@ -3,8 +3,9 @@ import PostsIndexItem from './posts_index_item';
 import { updatePost, deletePost } from '../../actions/post_actions';
 
 
-const mapStateToProps = (state) => ({
-  users: state.entities.users
+const mapStateToProps = (state, ownProps) => ({
+  users: state.entities.users,
+  likes: Object.values(state.entities.likes).filter(like => like.postId === ownProps.post.id)
 });
 
 

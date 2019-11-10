@@ -2,7 +2,8 @@ import React from 'react';
 import { formatDatePost } from '../../util/date_util';
 import { Link } from 'react-router-dom';
 import CommentsFormContainer from '../comments/comments_form_container';
-import CommentsIndexContainer from '../comments/comments_index_container'
+import CommentsIndexContainer from '../comments/comments_index_container';
+import LikesFormContainer from '../likes/likes_form_container';
 
 export default class PostsIndexItem extends React.Component {
   constructor(props) {
@@ -52,15 +53,36 @@ export default class PostsIndexItem extends React.Component {
       return null
     }
 
-    let { post, users, currentUser } = this.props;
+    let { post, users, currentUser, likes } = this.props;
 
-    let deleteButton, title, editButton;
+    let deleteButton, title, editButton, postLikes;
 
     if (post.authorId === currentUser.id || post.locationId === currentUser.id ) {
       deleteButton = <i onClick={this.deletePost} className="far fa-trash-alt"></i>
     }
     if (post.authorId === currentUser.id ) {
       editButton = <i onClick={this.toggleEdit} className="far fa-edit"></i>
+    }
+    if (likes.length === 1) {
+      let oneUser = likes[0].userId
+      postLikes = (
+        <div className="like-count">
+          <i className="fas fa-thumbs-up"></i>
+          <p>{users[oneUser].firstName} {users[oneUser].lastName}</p>
+        </div>
+      )
+    } else if (likes.length > 1) {
+      postLikes = (
+        <div className="like-count">
+          <i className="fas fa-thumbs-up"></i>
+          <p>{likes.length}</p>
+        </div>
+      )
+    } else {
+      postLikes = (
+        <div className="like-count">
+        </div>
+      )
     }
 
     if (this.props.newsfeed) {
@@ -134,9 +156,10 @@ export default class PostsIndexItem extends React.Component {
           <section className="post-body">
             {postContent}
             {photoContent}
+            {postLikes}
           </section>
           <div className="post-lac">
-            <p><i className="far fa-thumbs-up"></i>Like</p>
+            <LikesFormContainer postId={post.id} />
             <p><i className="far fa-comment-alt"></i>Comment</p>
           </div>
         </div>

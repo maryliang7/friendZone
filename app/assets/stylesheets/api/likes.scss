@@ -1,3 +1,28 @@
 // Place all the styles related to the api/likes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.like-count {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.like-count i {
+  color: white;
+  font-size: 9px;
+  background: rgb(65, 139, 242);
+  border: 4px solid rgb(65, 139, 242);
+  border-radius: 100px;
+  margin-right: 5px;
+}
+
+.like-button {
+  font-size: 14px;
+}
+
+.liked-active {
+  color: rgb(60, 90, 150);
+}

@@ -8,6 +8,14 @@ json.comments do
   end
 end
 
+json.likes do
+  post.likes.each do |like|
+    json.set! like.id do
+      json.extract! like, :id, :user_id, :post_id
+    end
+  end
+end
+
 if post.photo.attached?
   json.photoUrl url_for(post.photo)
 end
